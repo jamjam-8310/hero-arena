@@ -385,6 +385,13 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
 .stk{display:inline-flex;align-items:center;gap:4px;vertical-align:middle}.stkp{width:30px;height:30px;border-radius:50%;overflow:hidden;display:inline-block}.stkp svg{width:100%;height:100%;display:block}
 .stk b{font-size:12px;color:#fff}.stk.big{flex-direction:column}.stk.big .stkp{width:64px;height:64px}.stk.big b{font-size:13px}
 .emo.stkb{width:auto;padding:0 6px}.pbub .stk.big .stkp{width:56px;height:56px}.pbub.stkbub{background:rgba(255,255,255,.95);padding:4px 8px}.pbub.stkbub b{color:#141821}
+#eggPop{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 130px);transform:translateX(-50%);z-index:66;width:min(440px,92vw);background:linear-gradient(160deg,rgba(60,44,10,.96),rgba(24,18,8,.96));border:2px solid var(--gold);border-radius:18px;padding:12px 18px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.6);pointer-events:none}
+#eggPop.show{animation:eggIn .45s cubic-bezier(.2,1.6,.4,1)}@keyframes eggIn{from{transform:translate(-50%,30px) scale(.8);opacity:0}to{transform:translateX(-50%);opacity:1}}
+#eggPop b{font:400 22px "Black Han Sans","Noto Sans KR",sans-serif;color:var(--gold)}#eggPop p{margin:6px 0;color:#f4eefc;font-size:15px;line-height:1.5}#eggPop small{display:block;color:#cfc4a8;font-size:12px}
+.eggcode{margin:6px auto;display:inline-block;padding:6px 16px;border-radius:10px;background:#fff;color:#241603;font:900 22px ui-monospace,Consolas,monospace;letter-spacing:2px}
+#cpIn{width:100%;min-height:46px;border-radius:12px;border:2px solid #3d4860;background:#0e131e;color:#fff;font:800 20px ui-monospace,Consolas,monospace;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
+.cpfound{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:8px}.cpchip{min-height:34px;padding:2px 10px;border-radius:9px;border:1px solid #6a5a28;background:#2a2210;color:#ffe7b0;font:700 13px ui-monospace,Consolas,monospace;cursor:pointer}.cpchip.used{opacity:.5}
+.shopfoot .btn#cpBtn{flex:0 0 auto;padding:0 16px}
 </style>
 </head>
 <body>
@@ -446,7 +453,7 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
   <div class="nrow"><input id="netIn" maxlength="4" placeholder="방 코드" autocomplete="off" spellcheck="false"><button class="btn alt" id="netJoin">입장</button></div>
   <p id="netMsg" class="nmsg" role="status"></p>
   <button class="btn alt" id="netClose">닫기</button></div></div>
-<div id="verTag">v16 · 💎 다이아 상점·선물 · 11월 27일</div>
+<div id="verTag">v17 · 🥚 이스터에그·쿠폰 · 11월 27일</div>
 <button id="diaChip" type="button" aria-label="전리품 상점">💎 <b id="diaT">0</b> <span>상점</span></button>
 <div id="diaPop" aria-live="polite"></div>
 <button id="nameChip" type="button" aria-label="닉네임 바꾸기">👤 <b id="nameChipT">플레이어</b> <span aria-hidden="true">✎</span></button>
@@ -514,11 +521,17 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
   <p class="nsub">다이아 모으는 법: 웨이브 클리어 +1 · 30웨이브 클리어 +30 · 최고 기록 +10 · 스토리 별 하나에 +2 · 보스 첫 클리어 +10 · 3대3 라운드 승리 +2 · 3대3 우승 +10 · 매일 출석 +10. 전부 꾸미기라 능력은 그대로예요.</p>
   <div class="rktabs shoptabs" id="shopTabs"></div>
   <div class="shopgrid" id="shopGrid"></div>
-  <div class="shopfoot"><button class="btn alt" id="shopGiftD">🎁 친구에게 다이아 선물</button><button class="btn alt" id="shopClose">닫기</button></div>
+  <div class="shopfoot"><button class="btn alt" id="cpBtn">🎟️ 쿠폰</button><button class="btn alt" id="shopGiftD">🎁 친구에게 다이아 선물</button><button class="btn alt" id="shopClose">닫기</button></div>
 </div></div>
 <div id="giftDlg" class="center" hidden><div class="box netbox"><h2 class="disp">🎁 선물하기</h2><p id="gfWhat" class="nsub"></p>
   <label class="nl">받을 친구<select id="gfTo"></select></label><div id="gfAmt" class="rktabs gfamt"></div><p id="gfMsg" class="nsub" style="text-align:center"></p>
   <button class="btn" id="gfSend">보내기</button><button class="btn alt" id="gfClose">닫기</button></div></div>
+<div id="cpDlg" class="center" hidden><div class="box netbox"><h2 class="disp">🎟️ 쿠폰 입력</h2>
+  <p class="nsub" style="text-align:center">이스터에그에서 찾은 쿠폰 코드나 받은 코드를 입력하세요. 쿠폰 하나는 한 번만 쓸 수 있어요.</p>
+  <input id="cpIn" maxlength="24" placeholder="예: ABCD-EFGH" autocomplete="off" spellcheck="false"><p id="cpMsg" class="nsub" style="text-align:center;min-height:1.4em"></p>
+  <div id="cpFound" class="cpfound"></div>
+  <button class="btn" id="cpUse">사용하기</button><button class="btn alt" id="cpClose">닫기</button></div></div>
+<div id="eggPop" hidden></div>
 <div id="pause" class="center" hidden><div class="box"><h2 class="disp">일시정지</h2><button class="btn" id="resume">계속하기</button><button class="btn alt" id="toMenu1">캐릭터 선택으로</button></div></div>
 <div id="over" class="center" hidden><div class="box"><h2 class="disp">패배</h2><p id="overMsg" style="margin:0;color:#cfc7b4"></p>
   <div class="res"><div><b id="rWave">0</b><small>웨이브</small></div><div><b id="rKill">0</b><small>처치</small></div><div><b id="rScore">0</b><small>점수</small></div></div>
@@ -2211,7 +2224,7 @@ function makePlayer(id,idx){const h=ALLH.find(x=>x.id===id),m=buildHero(id);scen
     bind:TEAM?(idx===TEAM.me?LB:SB(idx)):NET.on?(idx===NET.me?LB:RB):BINDS[idx],team:TEAM?(idx<3?0:1):undefined,foot:makeFoot(h.glow),down:false,rev:0,dmg:0,kills:0,rage:0,mods:{dmg:1,cdr:1,jcd:1,pcd:1,spd:1,leech:0,crit:0,boom:0,regen:0,thorn:0,hx:false},upg:[],tag:TEAM?tTag(idx):(NET.on&&NET.names&&NET.names[idx]?NET.names[idx]:(idx+1)+'P')};
   if(coop){m.position.x=idx?2.5:-2.5;const t=document.createElement('div');t.className='ptag';t.style.background=TEAM?TCOL[pl.team]:PCOL[idx];t.textContent=pl.tag;labels.appendChild(t);pl.tagEl=t;}
   return pl;}
-function clearWorld(){pvp=false;for(const e of enemies){scene.remove(e.mesh);dispose(e.mesh);if(e.bar)e.bar.remove();}for(const p of projs){scene.remove(p.mesh);dispose(p.mesh);}for(const p of eprojs){scene.remove(p.m);dispose(p.m);}
+function clearWorld(){try{eggClear();}catch(e){}pvp=false;for(const e of enemies){scene.remove(e.mesh);dispose(e.mesh);if(e.bar)e.bar.remove();}for(const p of projs){scene.remove(p.mesh);dispose(p.mesh);}for(const p of eprojs){scene.remove(p.m);dispose(p.m);}
   for(const f of fx)if(f.o){scene.remove(f.o);dispose(f.o,f.keepGeo);}nums.forEach(n=>n.el.remove());pLife.fill(0);sLife.fill(0);for(let i=0;i<CN;i++)if(cL[i]>0)cL[i]=1e-4;
   for(const t of turrets){scene.remove(t.g);dispose(t.g);}turrets=[];for(const e of ents)if(e.g){scene.remove(e.g);dispose(e.g,e.keepGeo);}ents=[];$('#sepia').style.opacity=0;
   for(const pl of players){scene.remove(pl.mesh);dispose(pl.mesh);scene.remove(pl.foot.g);dispose(pl.foot.g);if(pl.tagEl)pl.tagEl.remove();if(pl.bubEl)pl.bubEl.remove();}
@@ -2223,7 +2236,7 @@ function startGame(ids,tr=false,pv=false){clearWorld();runReset();$('#tpause').h
   if(pvp&&TEAM){teamInit();}else if(pvp){for(const pl of players)pl.selfProxy={pvpOf:pl,t:{r:.6,km:1,col:pl.hero.color},type:'player',r:.6,mesh:pl.mesh,pos:pl.pos,kv:pl.kv,hp:pl.hp,max:pl.max,dead:false,spawnT:0,stun:0,slow:0,tstop:0,flash:0,burn:0};
     players[0].foes=[players[1].selfProxy];players[1].foes=[players[0].selfProxy];enemies=[];pvpS={round:1,wins:[0,0],phase:'count',t:2,timer:90};setCur(players[0]);startRound();}
   $('#dps').hidden=!training;if(pvp){}else if(training){$('#waveT').textContent='훈련장';setupTraining();banner('훈련장');}else{$('#waveT').textContent='WAVE 1';banner(coop?`${players[0].hero.name} & ${players[1].hero.name} 출전!`:players[0].hero.name+' 출전!');}
-  for(const pl of players){shock(pl.pos,4,pl.hero.glow,.6);pillar(pl.pos,pl.hero.glow,1.4,14,.8);embers(pl.pos,pl.hero.glow,30,1.5);}cosStart();}
+  for(const pl of players){shock(pl.pos,4,pl.hero.glow,.6);pillar(pl.pos,pl.hero.glow,1.4,14,.8);embers(pl.pos,pl.hero.glow,30,1.5);}cosStart();eggSpawn();}
 function toMenu(){if(STORY.on||state==='sres'){storyToMap();return;}TEAM=null;clearWorld();$('#upg').hidden=true;upState=null;state='menu';menuGroup.visible=true;$('#hud').hidden=true;$('#over').hidden=true;$('#pause').hidden=true;$('#menu').hidden=false;csel.forEach(c=>c.ok=false);renderSel();idleT=0;}
 function startWave(){wave++;hpMul=1+(wave-1)*.15;dmMul=1+(wave-1)*.06;const cnt=Math.round((4+wave*2)*(coop?1.5:1));spawnQ=[];
   const pool=[['slime',5],['goblin',wave>=2?4:0],['bowman',wave>=2?2:0],['shaman',wave>=3?2:0],['bomber',wave>=3?2:0],['shieldman',wave>=4?2:0],['brute',wave>=4?1.5:0],['healer',wave>=6?1:0]],tot=pool.reduce((a,b)=>a+b[1],0);
@@ -2427,7 +2440,7 @@ function update(dt){
   updHud();
 }
 function common(dt){
-  for(const pl of players)if(pl.cos)cosTick(pl,dt);
+  for(const pl of players)if(pl.cos)cosTick(pl,dt);if(state==='play')eggTick(dt);
   for(const f of fx){f.t+=dt;const k=Math.min(f.t/f.dur,1);if(f.upd){if(f.ow&&f.ow.hero&&players.includes(f.ow)){const po=P,ho=hero;setCur(f.ow);f.upd(k,dt);setCur(po);}else f.upd(k,dt);}if(k>=1){f.done_=true;if(f.o){scene.remove(f.o);dispose(f.o,f.keepGeo);}}}
   const fin=fx.filter(f=>f.done_);fx=fx.filter(f=>!f.done_);fin.forEach(f=>{if(!f.done)return;const po=P;if(f.ow&&players.includes(f.ow))setCur(f.ow);try{f.done();}finally{setCur(po);}});
   for(const n of nums){n.t+=dt;n.p.y+=dt*n.v;const[x,y]=toScreen(n.p);n.el.style.left=x+'px';n.el.style.top=y+'px';n.el.style.opacity=Math.min(1,(1-n.t/.85)*2.5);
@@ -5063,6 +5076,62 @@ $('#diaChip').onclick=openShop;$('#shopClose').onclick=closeShop;$('#shopGiftD')
 $('#gfClose').onclick=()=>{$('#giftDlg').hidden=true;};$('#gfSend').onclick=sendGift;
 updDia();stkBar();nameTitleUi();
 
+/* ---------- 🥚 이스터에그 · 🎟️ 쿠폰 ---------- */
+const CPN={'jbxbn5':{d:100,i:['st_mlove'],n:'뭉치의 사과 상자'},'1n0xc0w':{d:150,n:'코믹스의 장난 카드'},'15gslcf':{d:120,i:['st_nox'],n:'녹스의 사과 편지'},'dl5uov':{d:150,n:'루카의 기사 수첩'},'1iv0cb':{d:80,i:['ti_apple'],n:'따끈한 사과 파이'},'10zkdml':{d:200,n:'검은 물결의 조각'},'1azzg90':{d:100,n:'타이틀 속 비밀'},'duof19':{d:200,i:['h_prop'],n:'전설의 비밀 명령'},'1hiyjun':{d:150,n:'반짝이는 다이아'},'3814f9':{d:300,n:'환영 선물'},'1krql76':{d:100,i:['b_plush'],n:'뭉치 사랑'}};
+const cpDec=s=>atob(s).split('').reverse().join('');
+const EGG_CP=[{k:'mung',c:'R05VTS1HTlVN',m:'gift',t:'뭉치가 몰래 숨겨 둔 선물 상자를 찾았어요!'},{k:'comix',c:'TElLSy1YSU1PQw==',m:'card',t:'바닥에 떨어진 트럼프 카드… 뒷면에 글씨가 써 있어요!'},
+ {k:'nox',c:'WVJST1MtWE9O',m:'scroll',t:'녹스가 쓴 작은 편지를 찾았어요.'},{k:'luka',c:'VEhHSU5LLUFLVUw=',m:'scroll',t:'루카가 잃어버린 기사 수첩이에요!'},
+ {k:'apple',c:'RUlQLUVMUFBB',m:'apple',t:'아직 따끈한 사과 파이 조각! 뭉치가 좋아하겠다.'},{k:'wave',c:'RVZBVy1LQ0FMQg==',m:'box',t:'검게 빛나는 오르골… 뚜껑 안쪽에 글씨가 있어요.'}];
+const EGG_TIPS=['L 스킬은 체력이 낮을 때 쓰면 생명을 구해요.','적이 빨갛게 빛나면 곧 공격해요. 그때 옆으로 피하세요!','보라색 원은 위험 신호! 원이 보이면 바로 밖으로 나가세요.',
+ '5웨이브마다 금색 큰 강화 카드가 나와요.','보스는 5웨이브마다 랜덤으로 나와요. 같은 보스는 두 번 연속 안 나와요.','스토리에서 체력을 70% 넘게 지키면 별 3개!',
+ "코믹스의 '안전!' 표지판은 거짓말이에요.",'흑기사 카론은… 사실 나쁜 사람이 아닐지도?','뭉치는 사과 파이를 제일 좋아해요.','3대3에서는 같은 팀 근처에 붙어 다니면 유리해요.',
+ '궁극기(P)는 적이 많이 모였을 때 쓰세요.','고치를 빨리 부수면 점액이 더 안 나와요.','친구 목록의 🎁 버튼으로 다이아를 선물할 수 있어요.','매일 접속하면 다이아 10개!',
+ '30웨이브를 빨리 깰수록 랭킹이 올라가요.','틱의 시간 정지 시계는 보스도 잠깐 멈춰요.','맵 가장자리에 뭔가가 더 숨어 있을지도…',
+ '첫 화면의 큰 제목을 여러 번 눌러 보면…?','전설의 비밀 명령: ↑ ↑ ↓ ↓ ← → ← → B A (첫 화면에서)','상점 제목의 💎를 계속 눌러 보면 반짝일지도?'];
+let EGGS=[];
+function eggMesh(kind){const g=new THREE.Group(),M=(c,o)=>std(c,o||{});
+  if(kind==='gift'){g.add(mk(new THREE.BoxGeometry(.5,.4,.5),M(0xff5a8a),0,.2,0),mk(new THREE.BoxGeometry(.54,.08,.12),M(0xffe07a),0,.42,0),mk(new THREE.BoxGeometry(.12,.08,.54),M(0xffe07a),0,.42,0));}
+  else if(kind==='card'){const c=mk(new THREE.BoxGeometry(.36,.5,.03),M(0xffffff),0,.3,0);c.rotation.z=.25;g.add(c,mk(new THREE.BoxGeometry(.12,.12,.04),new THREE.MeshBasicMaterial({color:0xc040ff}),.02,.32,0));}
+  else if(kind==='scroll'){const s=mk(new THREE.CylinderGeometry(.09,.09,.55,12),M(0xf0e0b0),0,.12,0);s.rotation.z=PI/2;g.add(s,mk(new THREE.BoxGeometry(.06,.2,.2),M(0xc02a2a),0,.12,0));}
+  else if(kind==='apple'){g.add(mk(new THREE.SphereGeometry(.22,14,12),M(0xe03a3a),0,.22,0),mk(new THREE.BoxGeometry(.12,.04,.06),M(0x4aa84a),.05,.45,0));}
+  else if(kind==='box'){g.add(mk(new THREE.BoxGeometry(.42,.3,.32),M(0x2a1a3a),0,.15,0),mk(new THREE.CylinderGeometry(.02,.02,.2,6),M(0xc8a040,{metalness:.8}),.26,.18,0));}
+  else{const o=M(0xff9a4a);g.add(mk(new THREE.SphereGeometry(.2,12,10),o,0,.2,0),mk(new THREE.SphereGeometry(.17,12,10),o,0,.48,0),mk(new THREE.SphereGeometry(.03,6,6),M(0x2a140a),-.06,.52,.15),mk(new THREE.SphereGeometry(.03,6,6),M(0x2a140a),.06,.52,.15));}
+  const sp=sprite(0xfff4c0);sp.scale.set(.9,.9,1);sp.position.y=.3;if(sp.material)sp.material.opacity=.35;g.add(sp);g.userData.sp=sp;return g;}
+function eggClear(){for(const e of EGGS){if(e.mesh.parent)e.mesh.parent.remove(e.mesh);}EGGS=[];}
+function eggSpawn(){eggClear();if(pvp||training||TEAM)return;const spots=[];for(let i=0;i<14;i++)spots.push(i/14*TAU+rnd(-.08,.08));spots.sort(()=>Math.random()-.5);
+  const found=WAL.eggs||[],left=EGG_CP.filter(x=>!found.includes(x.k));const n=2+(Math.random()<.35?1:0);
+  for(let i=0;i<n;i++){const a=spots[i],r=rnd(17.5,20.3),pos=V(Math.sin(a)*r,0,Math.cos(a)*r);let e;
+    if(left.length&&Math.random()<.22){const cp=left.splice(Math.floor(Math.random()*left.length),1)[0];e={kind:'cp',cp,mesh:eggMesh(cp.m)};}else e={kind:'tip',tip:pick(EGG_TIPS),mesh:eggMesh(pick(['gift','apple','scroll','plush','card']))};
+    e.pos=pos;e.mesh.position.copy(pos);e.mesh.rotation.y=rnd(0,TAU);e.t=rnd(0,5);scene.add(e.mesh);EGGS.push(e);}}
+function eggTick(dt){if(!EGGS.length)return;const me=localPl();for(const e of EGGS){if(e.got)continue;e.t+=dt;e.mesh.position.y=Math.abs(Math.sin(e.t*2))*.12;e.mesh.rotation.y+=dt*.8;
+    if(e.mesh.userData.sp&&e.mesh.userData.sp.material)e.mesh.userData.sp.material.opacity=.2+Math.abs(Math.sin(e.t*1.5))*.3;
+    if(me&&!me.down&&Math.hypot(me.pos.x-e.pos.x,me.pos.z-e.pos.z)<1.3)eggGet(e);}}
+function eggGet(e){e.got=true;sparks(V(e.pos.x,.6,e.pos.z),0xfff4c0,24,8,.6,1);ringBurst(e.pos,0xffe07a,18,6,.5);if(e.mesh.parent)e.mesh.parent.remove(e.mesh);
+  WAL.eggN=(WAL.eggN||0)+1;
+  if(e.kind==='cp'){WAL.eggs=WAL.eggs||[];if(!WAL.eggs.includes(e.cp.k))WAL.eggs.push(e.cp.k);const code=cpDec(e.cp.c);WAL.found=WAL.found||[];if(!WAL.found.includes(code))WAL.found.push(code);walSave();eggShow('🥚 이스터에그 발견! 🎟️',e.cp.t,code);}
+  else{walSave();eggShow('🥚 이스터에그 발견!','💡 '+e.tip);}}
+function eggShow(title,text,code){const p=$('#eggPop');p.innerHTML='';const h=document.createElement('b');h.textContent=title;const t=document.createElement('p');t.textContent=text;p.append(h,t);
+  if(code){const c=document.createElement('div');c.className='eggcode';c.textContent=code;const s=document.createElement('small');s.textContent='상점(💎) → 🎟️ 쿠폰에 입력하면 선물을 받아요! (찾은 코드는 쿠폰 창에도 저장돼요)';p.append(c,s);}
+  p.hidden=false;p.classList.remove('show');void p.offsetWidth;p.classList.add('show');clearTimeout(eggShow.t);eggShow.t=setTimeout(()=>{p.hidden=true;},code?9000:6000);}
+/* 화면 속 숨은 비밀 */
+function uiEgg(key,b64){WAL.eggs=WAL.eggs||[];const code=cpDec(b64);WAL.found=WAL.found||[];const first=!WAL.eggs.includes(key);if(first){WAL.eggs.push(key);WAL.eggN=(WAL.eggN||0)+1;}if(!WAL.found.includes(code))WAL.found.push(code);walSave();
+  eggShow(first?'🥚 숨은 비밀 발견! 🎟️':'🥚 또 찾았네요!',key==='title'?'뭉! 들켰다! 제목 뒤에 숨어 있던 뭉치가 쪽지를 줬어요.':key==='konami'?'전설의 비밀 명령을 입력했어요! 어디선가 프로펠러 소리가…':'다이아가 눈부시게 반짝이더니 쪽지가 떨어졌어요!',code);}
+{let n=0,t=0;$('#lobby h1').addEventListener('click',()=>{const now=performance.now();n=now-t<1500?n+1:1;t=now;if(n>=7){n=0;uiEgg('title','QU5FUkEtT1JFSA==');}});}
+{const K=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','KeyB','KeyA'];let i=0;
+  window.addEventListener('keydown',e=>{if(state!=='lobby'&&state!=='menu')return;i=e.code===K[i]?i+1:(e.code===K[0]?1:0);if(i===K.length){i=0;uiEgg('konami','TldPRFBVUFU=');}},true);}
+{let n=0,t=0;document.querySelector('#shop .shophead h2').addEventListener('click',()=>{const now=performance.now();n=now-t<1500?n+1:1;t=now;if(n>=10){n=0;uiEgg('shop','TUVHLVlOSUhT');}});}
+/* 쿠폰 */
+function cpHash(s){s=String(s).toUpperCase().replace(/[^A-Z0-9]/g,'');let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}return h.toString(36);}
+function openCoupon(){$('#cpDlg').hidden=false;$('#cpIn').value='';$('#cpMsg').textContent='';renderCpFound();setTimeout(()=>$('#cpIn').focus(),50);}
+function renderCpFound(){const box=$('#cpFound');box.innerHTML='';const used=WAL.usedCp||[];const h=document.createElement('p');h.className='nsub';h.textContent=`찾은 이스터에그 ${WAL.eggN||0}개 · 찾은 쿠폰 코드 ${(WAL.found||[]).length}개 (숨은 쿠폰은 모두 9개예요)`;box.appendChild(h);
+  for(const c of WAL.found||[]){const b=document.createElement('button');b.type='button';const u=used.includes(cpHash(c));b.className='cpchip'+(u?' used':'');b.textContent=(u?'✅ ':'🎟️ ')+c;b.onclick=()=>{$('#cpIn').value=c;};box.appendChild(b);}}
+function useCoupon(){const raw=$('#cpIn').value.trim();if(!raw)return;const h=cpHash(raw),R=CPN[h];WAL.usedCp=WAL.usedCp||[];
+  if(!R){$('#cpMsg').textContent='❌ 없는 쿠폰 코드예요. 철자를 확인해 주세요.';return;}
+  if(WAL.usedCp.includes(h)){$('#cpMsg').textContent='이미 사용한 쿠폰이에요.';return;}
+  WAL.usedCp.push(h);let got=[];let d=R.d||0;for(const id of R.i||[]){const it=itemById(id);if(!it)continue;if(WAL.own.includes(id))d+=it.price;else{WAL.own.push(id);got.push(it.n);if(it.cat==='sticker')stkBar();}}
+  walSave();if(d)addDia(d,'쿠폰');updDia();$('#cpMsg').textContent=`🎉 '${R.n}' 쿠폰 사용! 💎 ${d}${got.length?' + '+got.join(', '):''}`;renderCpFound();if(!$('#shop').hidden)renderShop();}
+$('#cpBtn').onclick=openCoupon;$('#cpUse').onclick=useCoupon;$('#cpClose').onclick=()=>{$('#cpDlg').hidden=true;};$('#cpIn').addEventListener('keydown',e=>{if(e.code==='Enter'){e.preventDefault();useCoupon();}e.stopPropagation();});
+
 /* ---------- 입력 & 메뉴 ---------- */
 let chips=[];
 function buildChips(){$('#chips').innerHTML=HEROES.map((h,i)=>`<button class="chip" data-i="${i}" style="--c:${h.css}"><span class="badges"><span class="bd b1">1P</span><span class="bd b2">2P</span></span><span class="emb disp">${h.name[0]}</span><span>${h.name}</span></button>`).join('');
@@ -5102,7 +5171,7 @@ function menuKey(e){
   if(e.code==='Escape'){csel.forEach(c=>c.ok=false);renderSel();}}
 addEventListener('keydown',e=>{if(e.target&&e.target.tagName==='INPUT'){if(e.code==='Enter'&&e.target.id==='nickIn')nickOk();if(e.code==='Enter'&&e.target.id==='frSearch')frFind();if(e.code==='Enter'&&e.target.id==='netIn')netJoin();if(e.code==='Escape'&&e.target.id==='chatIn')closeChat();return;}
   if(NET.on&&(e.code==='Enter'||e.code==='NumpadEnter')&&(state==='play'||state==='over')&&$('#online').hidden){e.preventDefault();openChat();return;}if(!$('#nick').hidden){if(e.code==='Escape'&&hasName())$('#nick').hidden=true;return;}
-  if(!$('#giftDlg').hidden){if(e.code==='Escape')$('#giftDlg').hidden=true;return;}if(!$('#shop').hidden){if(e.code==='Escape')closeShop();return;}
+  if(!$('#cpDlg').hidden){if(e.code==='Escape')$('#cpDlg').hidden=true;return;}if(!$('#giftDlg').hidden){if(e.code==='Escape')$('#giftDlg').hidden=true;return;}if(!$('#shop').hidden){if(e.code==='Escape')closeShop();return;}
   if(!$('#online').hidden||!$('#match').hidden||!$('#friends').hidden||!$('#ranks').hidden){if(e.code==='Escape'){closeOnline();closeMatch();closeFriends();closeRanks();}return;}keys[e.code]=true;if(!e.repeat)tapped[e.code]=true;
   if(state==='cs'){csKey(e);e.preventDefault();return;}if(state==='story'){storyKey(e);return;}if(state==='sres'){sresKey(e);return;}
   if(state==='lobby'){if(e.code==='Digit6'||e.code==='Numpad6'){openStory();return;}if(e.code==='Digit1'||e.code==='Numpad1')pickVersion(1);if(e.code==='Digit2'||e.code==='Numpad2')pickVersion(2);if(e.code==='Digit3'||e.code==='Numpad3')pickVersion(3);if(e.code==='Digit4'||e.code==='Numpad4')pickVersion(4);if(e.code==='Digit5'||e.code==='Numpad5')pickVersion(5);if(e.code==='ArrowLeft'||e.code==='KeyA')setVersion(Math.max(1,VER-1));if(e.code==='ArrowRight'||e.code==='KeyD')setVersion(Math.min(5,VER+1));if(e.code==='Enter'||e.code==='KeyJ'||e.code==='Space'){e.preventDefault();pickVersion(VER);}return;}

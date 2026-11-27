@@ -391,7 +391,7 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
 .eggcode{margin:6px auto;display:inline-block;padding:6px 16px;border-radius:10px;background:#fff;color:#241603;font:900 22px ui-monospace,Consolas,monospace;letter-spacing:2px}
 #cpIn{width:100%;min-height:46px;border-radius:12px;border:2px solid #3d4860;background:#0e131e;color:#fff;font:800 20px ui-monospace,Consolas,monospace;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
 .cpfound{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:8px}.cpchip{min-height:34px;padding:2px 10px;border-radius:9px;border:1px solid #6a5a28;background:#2a2210;color:#ffe7b0;font:700 13px ui-monospace,Consolas,monospace;cursor:pointer}.cpchip.used{opacity:.5}
-.shopfoot .btn#cpBtn{flex:0 0 auto;padding:0 16px}
+.shopfoot{flex-wrap:wrap}.shopfoot .btn{white-space:nowrap;min-height:44px}.shopfoot .btn#shopGiftD{flex:1 1 100%;order:-1}.shopfoot .btn#cpBtn,.shopfoot .btn#shopClose{flex:1 1 0}.shopbox{overflow:hidden;box-sizing:border-box}.shopgrid{flex:1 1 auto;min-height:120px}.shopfoot{flex:none}@media (max-width:600px),(max-height:520px){.shopbox{max-height:96vh;padding:14px}.shophead h2{font-size:26px}.shopbox>.nsub{font-size:11px;margin:4px 0}.shoptabs{gap:4px}.shoptabs .rktab{flex:1 1 30%;min-height:34px;font-size:13px;padding:0 6px}.shopgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));max-height:none}.shopfoot .btn{min-height:40px;font-size:14px}}#shop,#giftDlg,#cpDlg{z-index:60}@media (max-height:520px){.shopbox>.nsub{display:none}.shoptabs .rktab{flex:1 1 12%;min-height:30px;font-size:12px}.shophead h2{font-size:22px}.shopgrid{min-height:90px}.shopfoot{gap:6px}.shopfoot .btn#shopGiftD{flex:2 1 0;order:0}.shopfoot .btn{min-height:36px}}
 </style>
 </head>
 <body>
@@ -453,7 +453,7 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
   <div class="nrow"><input id="netIn" maxlength="4" placeholder="방 코드" autocomplete="off" spellcheck="false"><button class="btn alt" id="netJoin">입장</button></div>
   <p id="netMsg" class="nmsg" role="status"></p>
   <button class="btn alt" id="netClose">닫기</button></div></div>
-<div id="verTag">v17 · 🥚 이스터에그·쿠폰 · 11월 27일</div>
+<div id="verTag">v17.1 · 🥚 이스터에그·쿠폰 · 11월 27일</div>
 <button id="diaChip" type="button" aria-label="전리품 상점">💎 <b id="diaT">0</b> <span>상점</span></button>
 <div id="diaPop" aria-live="polite"></div>
 <button id="nameChip" type="button" aria-label="닉네임 바꾸기">👤 <b id="nameChipT">플레이어</b> <span aria-hidden="true">✎</span></button>

@@ -391,7 +391,7 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
 .eggcode{margin:6px auto;display:inline-block;padding:6px 16px;border-radius:10px;background:#fff;color:#241603;font:900 22px ui-monospace,Consolas,monospace;letter-spacing:2px}
 #cpIn{width:100%;min-height:46px;border-radius:12px;border:2px solid #3d4860;background:#0e131e;color:#fff;font:800 20px ui-monospace,Consolas,monospace;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
 .cpfound{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:8px}.cpchip{min-height:34px;padding:2px 10px;border-radius:9px;border:1px solid #6a5a28;background:#2a2210;color:#ffe7b0;font:700 13px ui-monospace,Consolas,monospace;cursor:pointer}.cpchip.used{opacity:.5}
-.shopfoot{flex-wrap:wrap}.shopfoot .btn{white-space:nowrap;min-height:44px}.shopfoot .btn#shopGiftD{flex:1 1 100%;order:-1}.shopfoot .btn#cpBtn,.shopfoot .btn#shopClose{flex:1 1 0}.shopbox{overflow:hidden;box-sizing:border-box}.shopgrid{flex:1 1 auto;min-height:120px}.shopfoot{flex:none}@media (max-width:600px),(max-height:520px){.shopbox{max-height:96vh;padding:14px}.shophead h2{font-size:26px}.shopbox>.nsub{font-size:11px;margin:4px 0}.shoptabs{gap:4px}.shoptabs .rktab{flex:1 1 30%;min-height:34px;font-size:13px;padding:0 6px}.shopgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));max-height:none}.shopfoot .btn{min-height:40px;font-size:14px}}#shop,#giftDlg,#cpDlg,#guild{z-index:60}@media (max-height:520px){.shopbox>.nsub{display:none}.shoptabs .rktab{flex:1 1 12%;min-height:30px;font-size:12px}.shophead h2{font-size:22px}.shopgrid{min-height:90px}.shopfoot{gap:6px}.shopfoot .btn#shopGiftD{flex:2 1 0;order:0}.shopfoot .btn{min-height:36px}}
+.shopfoot{flex-wrap:wrap}.shopfoot .btn{white-space:nowrap;min-height:44px}.shopfoot .btn#shopGiftD{flex:1 1 100%;order:-1}.shopfoot .btn#cpBtn,.shopfoot .btn#shopClose{flex:1 1 0}.shopbox{overflow:hidden;box-sizing:border-box}.shopgrid{flex:1 1 auto;min-height:120px}.shopfoot{flex:none}@media (max-width:600px),(max-height:520px){.shopbox{max-height:96vh;padding:14px}.shophead h2{font-size:26px}.shopbox>.nsub{font-size:11px;margin:4px 0}.shoptabs{gap:4px}.shoptabs .rktab{flex:1 1 30%;min-height:34px;font-size:13px;padding:0 6px}.shopgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));max-height:none}.shopfoot .btn{min-height:40px;font-size:14px}}#shop,#giftDlg,#cpDlg,#guild,#moveDlg{z-index:60}@media (max-height:520px){.shopbox>.nsub{display:none}.shoptabs .rktab{flex:1 1 12%;min-height:30px;font-size:12px}.shophead h2{font-size:22px}.shopgrid{min-height:90px}.shopfoot{gap:6px}.shopfoot .btn#shopGiftD{flex:2 1 0;order:0}.shopfoot .btn{min-height:36px}}
 #gChip{position:fixed;top:calc(env(safe-area-inset-top) + 108px);right:calc(env(safe-area-inset-right) + 14px);z-index:30;display:none;align-items:center;gap:5px;min-height:38px;padding:0 14px;border-radius:20px;border:1px solid #ffb13b;background:rgba(14,19,30,.88);color:#dfe6f5;font:700 14px "Noto Sans KR",sans-serif;cursor:pointer}
 body.in-menu #gChip{display:inline-flex}#gChip b{color:#ffcf7a;max-width:8em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#gChip.war{border-color:#ff5a5a;animation:gwarP 1.4s infinite}
 @keyframes gwarP{50%{box-shadow:0 0 14px #ff4a4a}}
@@ -430,6 +430,7 @@ body.in-menu #gChip{display:inline-flex}#gChip b{color:#ffcf7a;max-width:8em;ove
 #gmTop{position:absolute;top:128px;left:50%;transform:translateX(-50%);font:800 14px "Noto Sans KR",sans-serif;color:#fff;text-shadow:0 2px 3px #000;text-align:center;pointer-events:none;white-space:nowrap}
 #gmTop[hidden]{display:none}#gmTop small{display:block;color:#ffd36a;font-size:12px}
 #gToast{position:fixed;left:50%;top:70px;transform:translate(-50%,-30px);z-index:70;background:rgba(14,19,30,.95);border:1px solid #ffb13b;color:#fff;padding:10px 18px;border-radius:14px;font:700 15px "Noto Sans KR",sans-serif;opacity:0;visibility:hidden;transition:.3s;pointer-events:none;max-width:90vw;text-align:center}
+#moveDlg .box{max-height:92vh;overflow-y:auto;box-sizing:border-box}#moveDlg h2{font-size:clamp(26px,8vw,40px);white-space:nowrap}
 #gToast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
 @media (max-width:600px){.gcard{gap:10px;padding:10px}.gemb{width:52px;height:52px;font-size:28px}.ginfo h3{font-size:17px}#gChip{top:calc(env(safe-area-inset-top) + 106px)}}
 </style>
@@ -493,7 +494,7 @@ body.in-menu #gChip{display:inline-flex}#gChip b{color:#ffcf7a;max-width:8em;ove
   <div class="nrow"><input id="netIn" maxlength="4" placeholder="방 코드" autocomplete="off" spellcheck="false"><button class="btn alt" id="netJoin">입장</button></div>
   <p id="netMsg" class="nmsg" role="status"></p>
   <button class="btn alt" id="netClose">닫기</button></div></div>
-<div id="verTag">v18 · 🏰 길드 · 11월 28일</div>
+<div id="verTag">v18.1 · 🏰 길드 · 📲 기기 옮기기 · 11월 28일</div>
 <button id="diaChip" type="button" aria-label="전리품 상점">💎 <b id="diaT">0</b> <span>상점</span></button>
 <button id="gChip" type="button" aria-label="길드">🏰 <b id="gChipT">길드</b></button><div id="gToast" role="status"></div>
 <div id="diaPop" aria-live="polite"></div>
@@ -502,7 +503,22 @@ body.in-menu #gChip{display:inline-flex}#gChip b{color:#ffcf7a;max-width:8em;ove
   <p id="nickMsg" class="nsub" style="text-align:center;min-height:22px"></p>
   <div class="nrow"><input id="nickIn" maxlength="10" placeholder="닉네임 (최대 10글자)" autocomplete="off" spellcheck="false"><button class="btn alt" id="nickDice" type="button" aria-label="무작위 닉네임">🎲</button></div>
   <p class="nsub" style="text-align:center;font-size:12px;color:#8a93a6">다른 사람과 겹치는 닉네임은 쓸 수 없어요. 등록하면 나만의 13자리 코드가 생겨요. 첫 화면 오른쪽 위 👤에서 언제든 바꿀 수 있어요.</p>
-  <button class="btn" id="nickOk">확인</button><button class="btn alt" id="nickOff" type="button" hidden>오프라인으로 시작</button></div></div>
+  <button class="btn" id="nickOk">확인</button><button class="btn alt" id="nickOff" type="button" hidden>오프라인으로 시작</button><button class="btn alt" id="nickMove" type="button">📲 기기 옮기기 · 백업</button></div></div>
+<div id="moveDlg" class="center" hidden><div class="box netbox"><h2 class="disp">📲 기기 옮기기</h2>
+  <p id="mvBk" class="nsub" style="text-align:center"></p>
+  <div id="mvSend"><p class="gsec">이 기기에서 보내기</p>
+    <p class="gnote">새 기기(새 폰)로 옮길 때: 여기서 코드를 만들고, 새 기기에서 [📲 기기 옮기기]를 눌러 그 코드를 입력하세요. 닉네임·친구·길드·다이아·전리품·스토리가 전부 넘어가요.</p>
+    <button class="btn" id="mvMake" type="button">옮기기 코드 만들기</button>
+    <div id="mvCodeBox" hidden style="text-align:center;margin:8px 0"><div id="mvCode" style="font:800 34px/1.2 monospace;letter-spacing:4px;color:#ffd36a"></div><small id="mvLeft" style="color:#a9b1c2"></small></div>
+    <button class="btn alt" id="mvNow" type="button">☁️ 지금 서버에 백업</button>
+    <button class="btn alt" id="mvShowKey" type="button">🔑 복구 열쇠 보기</button>
+    <div id="mvKeyBox" hidden style="margin:6px 0;text-align:center"><p class="gnote">폰을 잃어버려도 이 열쇠만 있으면 되찾을 수 있어요. <b style="color:#ff9a8a">사진(스크린샷)으로 저장해 두고, 다른 사람에게는 절대 보여주지 마세요!</b></p>
+      <div id="mvKey" style="font:700 13px monospace;word-break:break-all;background:#0c1018;border:1px solid #3d4860;border-radius:10px;padding:10px;color:#fff;user-select:all"></div><button class="btn alt" id="mvCopy" type="button">📋 복사</button></div></div>
+  <p class="gsec">다른 기기에서 받아오기</p>
+  <input id="mvIn" maxlength="80" placeholder="옮기기 코드 (예: K7P2-9QXM) 또는 복구 열쇠" autocomplete="off" spellcheck="false" style="width:100%;min-height:44px;border-radius:10px;background:#151b28;color:#fff;border:1px solid #3d4860;font:600 15px 'Noto Sans KR',sans-serif;padding:0 12px;box-sizing:border-box">
+  <p id="mvMsg" class="nsub" style="text-align:center;min-height:1.4em"></p>
+  <button class="btn" id="mvGo" type="button">받아오기</button><button class="btn alt" id="mvClose" type="button">닫기</button></div></div>
+
 <div id="chatLog" aria-live="polite"></div>
 <form id="chatBox" hidden><div id="emos" class="emos"></div><input id="chatIn" maxlength="60" placeholder="메시지를 입력하고 Enter" autocomplete="off" spellcheck="false"><button type="submit" class="btn">보내기</button></form>
 <button id="chatBtn" hidden aria-label="채팅 열기">💬</button>
@@ -2823,7 +2839,7 @@ function nameUi(){const n=savedName();$('#nameChipT').textContent=n;$('#netName'
 // 서버에 요청하고 답을 기다려요 (서버가 오래된 버전이면 답이 없어요)
 function ask(ev,data,ms=8000){return new Promise(res=>{const s=NET.sock;if(!s||!s.connected)return res(null);const t=setTimeout(()=>res(null),ms);s.emit(ev,data,r=>{clearTimeout(t);res(r||null);});});}
 function frApply(r){if(Array.isArray(r.gifts))setTimeout(()=>r.gifts.forEach(onGiftIn),600);FR.v2=true;FR.authed=true;FR.list=(r.friends||[]).map(f=>({uid:f.uid,name:cleanName(f.name)}));FR.online={};for(const f of r.friends||[])if(f.online)FR.online[f.uid]=1;
-  FR.reqs=(r.reqs||[]).map(f=>({uid:f.uid,name:cleanName(f.name)}));if(r.name&&ACCT){ACCT.name=cleanName(r.name);acctSave();}frSave();nameUi();frRender();gRefresh();
+  FR.reqs=(r.reqs||[]).map(f=>({uid:f.uid,name:cleanName(f.name)}));if(r.name&&ACCT){ACCT.name=cleanName(r.name);acctSave();}frSave();nameUi();frRender();gRefresh();if(CLOUD&&CLOUD.dirty)cloudDirty();
   if(FR.reqs.length)frToast(`받은 친구 요청이 ${FR.reqs.length}개 있어요`);}
 async function frAuth(name){if(!ACCT)return null;const r=await ask('auth',{uid:ACCT.uid,secret:ACCT.secret,name:name||ACCT.name,cache:FR.list.map(f=>f.uid)});
   if(!r)return null;if(r.ok)frApply(r);else FR.authed=false;return r;}
@@ -2885,7 +2901,7 @@ function openFriends(){needAcct(()=>{nameUi();$('#frFound').innerHTML='';$('#fri
 function closeFriends(){if($('#friends').hidden)return;$('#friends').hidden=true;if(!NET.on&&NET.code&&NET.host)netLeaveRoom();idleT=0;}
 $('#frBtn').onclick=openFriends;$('#frClose').onclick=closeFriends;$('#frFind').onclick=frFind;$('#frRename').onclick=()=>openNick(false);
 $('#frCopy').onclick=()=>{const t=ACCT?fmtCode(ACCT.uid):'';if(!t)return;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>frMsg('내 코드를 복사했어요!')).catch(()=>frMsg('내 코드: '+t));};
-frRender();if(ACCT&&FR.list.length)setTimeout(()=>{frConnect().catch(()=>{});},1200);
+frRender();if(ACCT)setTimeout(()=>{frConnect().catch(()=>{});},1200);
 
 /* ---------- 닉네임 정하기 (서버에 등록) ---------- */
 const NICK_A=['용감한','빠른','졸린','배고픈','무적의','수상한','귀여운','전설의','번개','불꽃'],NICK_B=['기사','토끼','고양이','타자','정령','닌자','곰','펭귄','용','여우'];
@@ -4803,7 +4819,7 @@ let STS_KEY='heroArenaStory1';
 let STS={clr:{},seen:{},roster:['s_luka'],locked:[],hero:'s_luka',scary:true,sel:'0-1',ch:0};
 function stLoad(){try{const s=JSON.parse(localStorage.getItem(STS_KEY)||'null');if(s)STS=Object.assign(STS,s);}catch(e){}for(const id of PARTS[SP].roster)if(!STS.roster.includes(id))STS.roster.push(id);}
 function stSetPart(i){SP=i;const Q=PARTS[i];SCH=Q.SCH;SCN=Q.SCN;STS_KEY=Q.key;STS={clr:{},seen:{},roster:Q.roster.slice(),locked:[],hero:'s_luka',scary:true,sel:'0-1',ch:0};stLoad();try{localStorage.setItem('heroArenaStoryPart',String(i));}catch(e){}}
-function stSave(){try{localStorage.setItem(STS_KEY,JSON.stringify(STS));}catch(e){}}
+function stSave(){try{localStorage.setItem(STS_KEY,JSON.stringify(STS));}catch(e){}cloudDirty();}
 {let sp=0;try{sp=+localStorage.getItem('heroArenaStoryPart')||0;}catch(e){}stSetPart(sp===1?1:0);}
 const STORY={on:false,cur:null};let SREV=0;
 function stHeroOk(id){return STS.roster.includes(id)&&!STS.locked.includes(id)?id:'s_luka';}
@@ -5000,7 +5016,7 @@ const itemById=id=>ITEMS.find(x=>x.id===id);
 const WAL_KEY='heroArenaWallet';
 let WAL={d:0,own:[],eq:{hat:'',back:'',aura:'',trail:'',title:''},day:'',gotIds:[]};
 function walLoad(){try{const s=JSON.parse(localStorage.getItem(WAL_KEY)||'null');if(s){WAL=Object.assign(WAL,s);WAL.eq=Object.assign({hat:'',back:'',aura:'',trail:'',title:''},s.eq||{});}}catch(e){}WAL.d=Math.max(0,Math.floor(+WAL.d||0));}
-function walSave(){try{localStorage.setItem(WAL_KEY,JSON.stringify(WAL));}catch(e){}}
+function walSave(){try{localStorage.setItem(WAL_KEY,JSON.stringify(WAL));}catch(e){}cloudDirty();}
 function updDia(){const t=WAL.d.toLocaleString();$('#diaT').textContent=t;if($('#shopDia'))$('#shopDia').textContent=t;}
 function diaPopShow(t){const d=document.createElement('div');d.textContent=t;$('#diaPop').appendChild(d);setTimeout(()=>d.remove(),2400);while($('#diaPop').children.length>4)$('#diaPop').firstChild.remove();}
 function addDia(n,why){n=Math.floor(n);if(!(n>0))return;WAL.d+=n;walSave();updDia();diaPopShow(`+${n} 💎${why?' '+why:''}`);}
@@ -5364,6 +5380,48 @@ function gmExit(){GM.on=false;GM.done=true;try{ask('gFightEnd',{});}catch(e){}TE
   $('#hud').hidden=true;$('#over').hidden=true;$('#pause').hidden=true;$('#gres').hidden=true;$('#gmTop').hidden=true;$('#toMenu1').textContent='캐릭터 선택으로';goLobby();openGuild();}
 $('#gChip').onclick=openGuild;$('#gClose').onclick=closeGuild;$('#grBack').onclick=gmExit;$('#grAgain').onclick=()=>{const k=GM.k;GM.on=false;TEAM=null;clearWorld();$('#gres').hidden=true;$('#hud').hidden=true;menuGroup.visible=true;gmGo(k,true);};
 
+/* ── 📲 기기 옮기기 · ☁️ 백업 ── */
+var CLOUD={t:null,at:(()=>{try{return +localStorage.getItem('heroArenaCloudAt')||0;}catch(e){return 0;}})(),block:false};
+var CLOUD_SKIP=['heroArenaAcct','heroArenaServer','heroArenaCloudAt'];
+function cloudPack(){const o={};try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('heroArena')&&!CLOUD_SKIP.includes(k))o[k]=localStorage.getItem(k);}}catch(e){}return JSON.stringify(o);}
+function cloudDirty(){if(!CLOUD||CLOUD.block||!ACCT)return;CLOUD.dirty=true;clearTimeout(CLOUD.t);CLOUD.t=setTimeout(cloudUp,8000);}
+async function cloudUp(){if(CLOUD.block||!ACCT||!FR.authed||!NET.sock||!NET.sock.connected)return false;const r=await ask('saveUp',{data:cloudPack()});
+  if(r&&r.ok){CLOUD.dirty=false;CLOUD.at=r.at||Date.now();try{localStorage.setItem('heroArenaCloudAt',CLOUD.at);}catch(e){}mvBackupUi();return true;}return false;}
+function cloudApply(save){if(typeof save!=='string')return false;let o;try{o=JSON.parse(save);}catch(e){return false;}if(!o||typeof o!=='object')return false;
+  try{const del=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('heroArena')&&!CLOUD_SKIP.includes(k))del.push(k);}del.forEach(k=>localStorage.removeItem(k));
+    for(const[k,v]of Object.entries(o))if(k.startsWith('heroArena')&&typeof v==='string')localStorage.setItem(k,v);}catch(e){return false;}return true;}
+const mvTime=t=>{const d=new Date(t);return`${d.getMonth()+1}월 ${d.getDate()}일 ${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}`;};
+function mvBackupUi(){const el=$('#mvBk');if(el)el.hidden=!ACCT;if(el)el.textContent=CLOUD.at?`☁️ 마지막 서버 백업: ${mvTime(CLOUD.at)}`:'☁️ 아직 서버 백업이 없어요';}
+function mvKey(){return ACCT?`${fmtCode(ACCT.uid)}/${ACCT.secret}`:'';}
+function openMove(){$('#nick').hidden=true;$('#moveDlg').hidden=false;$('#mvMsg').textContent='';$('#mvIn').value='';
+  $('#mvSend').hidden=!ACCT;$('#mvCodeBox').hidden=true;$('#mvKeyBox').hidden=true;mvBackupUi();}
+function closeMove(){$('#moveDlg').hidden=true;clearInterval(openMove.t);idleT=0;}
+async function mvMake(){const b=$('#mvMake');b.disabled=true;$('#mvMsg').textContent='서버에 연결하는 중…';await frConnect();await cloudUp();const r=await ask('xferMake',{});b.disabled=false;
+  if(!r||!r.ok){$('#mvMsg').textContent='코드를 만들지 못했어요. 서버를 확인해 주세요.';return;}$('#mvMsg').textContent='';
+  $('#mvCode').textContent=r.code;$('#mvCodeBox').hidden=false;clearInterval(openMove.t);const tick=()=>{const s=Math.max(0,Math.round((r.exp-Date.now())/1000));$('#mvLeft').textContent=s?`⏱ ${Math.floor(s/60)}분 ${String(s%60).padStart(2,'0')}초 동안 쓸 수 있어요`:'시간이 지났어요. 다시 만들어 주세요.';if(!s)clearInterval(openMove.t);};tick();openMove.t=setInterval(tick,1000);}
+function mvShowKey(){$('#mvKey').textContent=mvKey();$('#mvKeyBox').hidden=false;}
+async function mvGet(){const raw=$('#mvIn').value.trim();if(!raw)return $('#mvMsg').textContent='옮기기 코드나 복구 열쇠를 입력해 주세요.';
+  const go=async()=>{let done=false;const b=$('#mvGo');b.disabled=true;$('#mvMsg').textContent='서버에 연결하는 중… (처음엔 50초쯤 걸릴 수 있어요)';CLOUD.block=true;
+    try{ensureUrl();await netConnect();let acct=null,save=null;
+      const km=raw.replace(/\s/g,'').match(/^([A-Z0-9]{4})-?([A-Z0-9]{4})-?([A-Z0-9]{5})\/(.+)$/i);
+      if(km){const uid=(km[1]+km[2]+km[3]).toUpperCase();const r=await ask('auth',{uid,secret:km[4],name:'',cache:[]});
+        if(!r){$('#mvMsg').textContent='서버가 답하지 않아요. 잠시 뒤 다시 해 주세요.';return;}
+        if(!r.ok){$('#mvMsg').textContent='복구 열쇠가 맞지 않아요. 다시 확인해 주세요.';return;}
+        acct={uid,secret:km[4],name:cleanName(r.name)};const g=await ask('saveGet',{});if(!g||!g.ok){$('#mvMsg').textContent='백업을 불러오지 못했어요. 다시 해 주세요.';return;}save=g.save;}
+      else{const r=await ask('xferUse',{code:raw});
+        if(!r){$('#mvMsg').textContent='서버가 답하지 않아요. 잠시 뒤 다시 해 주세요.';return;}
+        if(!r.ok){$('#mvMsg').textContent=r.error==='many'?'너무 많이 틀렸어요. 페이지를 새로고침하고 다시 해 주세요.':'코드가 맞지 않거나 10분이 지났어요. 예전 기기에서 새 코드를 만들어 주세요.';return;}
+        acct={uid:r.uid,secret:r.secret,name:cleanName(r.name)};save=r.save;}
+      if(save&&!cloudApply(save)){$('#mvMsg').textContent='백업 데이터를 읽지 못했어요.';return;}
+      ACCT=acct;acctSave();try{localStorage.setItem('heroArenaCloudAt',Date.now());}catch(e){}
+      $('#mvMsg').textContent=`🎉 ${acct.name}님의 데이터를 가져왔어요! 다시 시작할게요…`;done=true;setTimeout(()=>location.reload(),1500);}
+    finally{b.disabled=false;if(!done)CLOUD.block=false;}};
+  if(ACCT)showPrompt(`지금 이 기기의 '${ACCT.name}' 계정과 다이아·스토리 기록이 가져온 데이터로 바뀌어요. 계속할까요?`,'가져오기','취소',go);else go();}
+$('#mvMake').onclick=mvMake;$('#mvShowKey').onclick=mvShowKey;$('#mvGo').onclick=mvGet;$('#mvClose').onclick=closeMove;$('#nickMove').onclick=openMove;
+$('#mvNow').onclick=async()=>{$('#mvMsg').textContent='백업하는 중…';await frConnect();$('#mvMsg').textContent=await cloudUp()?'✅ 서버에 백업했어요!':'백업하지 못했어요. 닉네임 등록과 서버 연결을 확인해 주세요.';};
+$('#mvCopy').onclick=()=>{try{navigator.clipboard.writeText(mvKey());$('#mvMsg').textContent='📋 복사했어요! 메모장이나 사진으로 꼭 저장해 두세요.';}catch(e){}};
+$('#mvIn').addEventListener('keydown',e=>{if(e.code==='Enter'){e.preventDefault();mvGet();}e.stopPropagation();});
+
 function goLobby(){state='lobby';$('#menu').hidden=true;$('#lobby').hidden=false;}
 function pickVersion(v){setVersion(v);state='menu';$('#lobby').hidden=true;$('#menu').hidden=false;csel.forEach(c=>c.ok=false);renderSel();idleT=0;}
 document.querySelectorAll('.ver[data-v]').forEach(b=>{b.addEventListener('mouseenter',()=>setVersion(+b.dataset.v));b.addEventListener('focus',()=>setVersion(+b.dataset.v));b.addEventListener('click',()=>pickVersion(+b.dataset.v));});
@@ -5380,7 +5438,7 @@ function menuKey(e){
   if(e.code==='Escape'){csel.forEach(c=>c.ok=false);renderSel();}}
 addEventListener('keydown',e=>{if(e.target&&e.target.tagName==='INPUT'){if(e.code==='Enter'&&e.target.id==='nickIn')nickOk();if(e.code==='Enter'&&e.target.id==='frSearch')frFind();if(e.code==='Enter'&&e.target.id==='netIn')netJoin();if(e.code==='Escape'&&e.target.id==='chatIn')closeChat();return;}
   if(NET.on&&(e.code==='Enter'||e.code==='NumpadEnter')&&(state==='play'||state==='over')&&$('#online').hidden){e.preventDefault();openChat();return;}if(!$('#nick').hidden){if(e.code==='Escape'&&hasName())$('#nick').hidden=true;return;}
-  if(!$('#cpDlg').hidden){if(e.code==='Escape')$('#cpDlg').hidden=true;return;}if(!$('#giftDlg').hidden){if(e.code==='Escape')$('#giftDlg').hidden=true;return;}if(!$('#shop').hidden){if(e.code==='Escape')closeShop();return;}if(!$('#guild').hidden){if(e.code==='Escape')closeGuild();return;}
+  if(!$('#cpDlg').hidden){if(e.code==='Escape')$('#cpDlg').hidden=true;return;}if(!$('#giftDlg').hidden){if(e.code==='Escape')$('#giftDlg').hidden=true;return;}if(!$('#shop').hidden){if(e.code==='Escape')closeShop();return;}if(!$('#guild').hidden){if(e.code==='Escape')closeGuild();return;}if(!$('#moveDlg').hidden){if(e.code==='Escape')closeMove();return;}
   if(!$('#online').hidden||!$('#match').hidden||!$('#friends').hidden||!$('#ranks').hidden){if(e.code==='Escape'){closeOnline();closeMatch();closeFriends();closeRanks();}return;}keys[e.code]=true;if(!e.repeat)tapped[e.code]=true;
   if(state==='cs'){csKey(e);e.preventDefault();return;}if(state==='story'){storyKey(e);return;}if(state==='sres'&&GM.on){if(e.code==='Escape')gmExit();return;}if(state==='sres'){sresKey(e);return;}
   if(state==='lobby'){if(e.code==='Digit6'||e.code==='Numpad6'){openStory();return;}if(e.code==='Digit1'||e.code==='Numpad1')pickVersion(1);if(e.code==='Digit2'||e.code==='Numpad2')pickVersion(2);if(e.code==='Digit3'||e.code==='Numpad3')pickVersion(3);if(e.code==='Digit4'||e.code==='Numpad4')pickVersion(4);if(e.code==='Digit5'||e.code==='Numpad5')pickVersion(5);if(e.code==='ArrowLeft'||e.code==='KeyA')setVersion(Math.max(1,VER-1));if(e.code==='ArrowRight'||e.code==='KeyD')setVersion(Math.min(5,VER+1));if(e.code==='Enter'||e.code==='KeyJ'||e.code==='Space'){e.preventDefault();pickVersion(VER);}return;}

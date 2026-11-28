@@ -391,7 +391,47 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
 .eggcode{margin:6px auto;display:inline-block;padding:6px 16px;border-radius:10px;background:#fff;color:#241603;font:900 22px ui-monospace,Consolas,monospace;letter-spacing:2px}
 #cpIn{width:100%;min-height:46px;border-radius:12px;border:2px solid #3d4860;background:#0e131e;color:#fff;font:800 20px ui-monospace,Consolas,monospace;text-align:center;letter-spacing:2px;text-transform:uppercase;margin-top:6px}
 .cpfound{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:8px}.cpchip{min-height:34px;padding:2px 10px;border-radius:9px;border:1px solid #6a5a28;background:#2a2210;color:#ffe7b0;font:700 13px ui-monospace,Consolas,monospace;cursor:pointer}.cpchip.used{opacity:.5}
-.shopfoot{flex-wrap:wrap}.shopfoot .btn{white-space:nowrap;min-height:44px}.shopfoot .btn#shopGiftD{flex:1 1 100%;order:-1}.shopfoot .btn#cpBtn,.shopfoot .btn#shopClose{flex:1 1 0}.shopbox{overflow:hidden;box-sizing:border-box}.shopgrid{flex:1 1 auto;min-height:120px}.shopfoot{flex:none}@media (max-width:600px),(max-height:520px){.shopbox{max-height:96vh;padding:14px}.shophead h2{font-size:26px}.shopbox>.nsub{font-size:11px;margin:4px 0}.shoptabs{gap:4px}.shoptabs .rktab{flex:1 1 30%;min-height:34px;font-size:13px;padding:0 6px}.shopgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));max-height:none}.shopfoot .btn{min-height:40px;font-size:14px}}#shop,#giftDlg,#cpDlg{z-index:60}@media (max-height:520px){.shopbox>.nsub{display:none}.shoptabs .rktab{flex:1 1 12%;min-height:30px;font-size:12px}.shophead h2{font-size:22px}.shopgrid{min-height:90px}.shopfoot{gap:6px}.shopfoot .btn#shopGiftD{flex:2 1 0;order:0}.shopfoot .btn{min-height:36px}}
+.shopfoot{flex-wrap:wrap}.shopfoot .btn{white-space:nowrap;min-height:44px}.shopfoot .btn#shopGiftD{flex:1 1 100%;order:-1}.shopfoot .btn#cpBtn,.shopfoot .btn#shopClose{flex:1 1 0}.shopbox{overflow:hidden;box-sizing:border-box}.shopgrid{flex:1 1 auto;min-height:120px}.shopfoot{flex:none}@media (max-width:600px),(max-height:520px){.shopbox{max-height:96vh;padding:14px}.shophead h2{font-size:26px}.shopbox>.nsub{font-size:11px;margin:4px 0}.shoptabs{gap:4px}.shoptabs .rktab{flex:1 1 30%;min-height:34px;font-size:13px;padding:0 6px}.shopgrid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));max-height:none}.shopfoot .btn{min-height:40px;font-size:14px}}#shop,#giftDlg,#cpDlg,#guild{z-index:60}@media (max-height:520px){.shopbox>.nsub{display:none}.shoptabs .rktab{flex:1 1 12%;min-height:30px;font-size:12px}.shophead h2{font-size:22px}.shopgrid{min-height:90px}.shopfoot{gap:6px}.shopfoot .btn#shopGiftD{flex:2 1 0;order:0}.shopfoot .btn{min-height:36px}}
+#gChip{position:fixed;top:calc(env(safe-area-inset-top) + 108px);right:calc(env(safe-area-inset-right) + 14px);z-index:30;display:none;align-items:center;gap:5px;min-height:38px;padding:0 14px;border-radius:20px;border:1px solid #ffb13b;background:rgba(14,19,30,.88);color:#dfe6f5;font:700 14px "Noto Sans KR",sans-serif;cursor:pointer}
+body.in-menu #gChip{display:inline-flex}#gChip b{color:#ffcf7a;max-width:8em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#gChip.war{border-color:#ff5a5a;animation:gwarP 1.4s infinite}
+@keyframes gwarP{50%{box-shadow:0 0 14px #ff4a4a}}
+#nameChipG{margin-right:2px}
+.gbox{width:min(860px,96vw)}
+.gbody{flex:1 1 auto;min-height:0;overflow-y:auto;padding:4px 2px;margin-top:8px}
+.gcard{display:flex;align-items:center;gap:14px;padding:12px;border-radius:14px;background:#151b28;border:1px solid #2d3750;margin-bottom:8px}
+.gemb{flex:none;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:34px;background:radial-gradient(circle at 35% 30%,#ffffff33,transparent 60%),var(--gc,#555);border:3px solid #0008;position:relative}
+.gemb.t2{border-color:#c9d2de;box-shadow:0 0 0 2px #c9d2de55}.gemb.t3{border-color:#ffd36a;box-shadow:0 0 12px #ffd36a88}.gemb.t4{border-color:#ffd36a;box-shadow:0 0 18px #ff9a3aaa,0 0 0 3px #c88aff;animation:gembG 2.4s infinite}
+@keyframes gembG{50%{box-shadow:0 0 26px #ffd36a,0 0 0 3px #ff7ad9}}
+.gemb.sm{width:38px;height:38px;font-size:20px;border-width:2px}
+.ginfo{flex:1;min-width:0}.ginfo h3{margin:0;font-size:20px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ginfo small{display:block;color:#a9b1c2;font-size:13px;margin-top:2px}
+.gtag{display:inline-block;padding:1px 8px;border-radius:9px;font-size:12px;font-weight:700;margin-left:6px;vertical-align:middle;background:#2a3348;color:#ffd36a}.gtag.red{background:#4a1a1a;color:#ff9a8a}.gtag.blue{background:#1a2a4a;color:#8ac8ff}
+.gsec{margin:10px 0 6px;font-weight:800;color:#ffd36a;font-size:15px}
+.grow{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:#121722;border:1px solid #232c40;margin-bottom:5px}
+.grow .gn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}.grow small{color:#8a93a6;font-size:12px}
+.grow .btn{width:auto;min-height:34px;padding:0 12px;font-size:13px;margin:0;flex:none}
+.gdot{width:9px;height:9px;border-radius:50%;background:#4a5060;flex:none}.gdot.on{background:#5ad46a;box-shadow:0 0 6px #5ad46a}
+.gbar{height:16px;border-radius:8px;background:#0c1018;border:1px solid #2d3750;overflow:hidden;position:relative}
+.gbar i{display:block;height:100%;background:linear-gradient(90deg,#5ad46a,#b8f06a);transition:width .4s}
+.gbar.boss i{background:linear-gradient(90deg,#ff3b2f,#ff8a3c)}.gbar.wall i{background:linear-gradient(90deg,#8a6a4a,#d8b070)}.gbar.mine i{background:linear-gradient(90deg,#3a7aff,#8ac8ff)}
+.gbar span{position:absolute;inset:0;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;text-shadow:0 1px 2px #000}
+.gtabs{flex-wrap:wrap;margin-top:6px}.gtabs .rktab{flex:1 1 90px}
+.gchat{height:min(44vh,340px);overflow-y:auto;background:#0e131d;border:1px solid #232c40;border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:5px}
+.gchat div{font-size:14px;line-height:1.4;word-break:break-all}.gchat b{color:#ffcf7a;margin-right:6px}.gchat div.me b{color:#8ac8ff}.gchat small{color:#5a6478;font-size:11px;margin-left:6px}
+.gin{display:flex;gap:6px;margin-top:6px}.gin input{flex:1;min-width:0}.gin .btn{width:auto;margin:0;padding:0 16px}
+#guild input{min-height:42px;border-radius:10px;background:#151b28;color:#fff;border:1px solid #3d4860;font:600 15px "Noto Sans KR",sans-serif;padding:0 12px;box-sizing:border-box}
+.gpick{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.gpick button{width:44px;height:44px;border-radius:10px;border:2px solid #2d3750;background:#151b28;font-size:22px;cursor:pointer;padding:0}
+.gpick button.on{border-color:#ffd36a;box-shadow:0 0 8px #ffd36a88}
+.gbig{display:block;width:100%;margin:8px 0 0}
+.glog{font-size:12.5px;color:#a9b1c2;line-height:1.6}
+.gnote{font-size:12.5px;color:#8a93a6;margin:4px 0}
+.gvs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;text-align:center;margin:6px 0}.gvs b{font-size:28px;color:#ff6a5a}
+.gvs .ginfo h3{font-size:16px}
+#gres .stars{display:none}
+#gmTop{position:absolute;top:128px;left:50%;transform:translateX(-50%);font:800 14px "Noto Sans KR",sans-serif;color:#fff;text-shadow:0 2px 3px #000;text-align:center;pointer-events:none;white-space:nowrap}
+#gmTop[hidden]{display:none}#gmTop small{display:block;color:#ffd36a;font-size:12px}
+#gToast{position:fixed;left:50%;top:70px;transform:translate(-50%,-30px);z-index:70;background:rgba(14,19,30,.95);border:1px solid #ffb13b;color:#fff;padding:10px 18px;border-radius:14px;font:700 15px "Noto Sans KR",sans-serif;opacity:0;visibility:hidden;transition:.3s;pointer-events:none;max-width:90vw;text-align:center}
+#gToast.on{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media (max-width:600px){.gcard{gap:10px;padding:10px}.gemb{width:52px;height:52px;font-size:28px}.ginfo h3{font-size:17px}#gChip{top:calc(env(safe-area-inset-top) + 106px)}}
 </style>
 </head>
 <body>
@@ -407,7 +447,7 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
     <div class="mid"><div id="waveT" class="disp">WAVE 1</div><div class="score"><b id="scoreT" class="disp">0</b><small>처치 <span id="killT">0</span></small></div></div>
     <div id="hpB"></div>
   </div>
-  <div id="bossbar" hidden><b class="disp">투기장의 군주</b><div><i id="bossfill"></i></div></div>
+  <div id="gmTop" hidden></div><div id="bossbar" hidden><b class="disp">투기장의 군주</b><div><i id="bossfill"></i></div></div>
   <div id="dps" hidden><b>DPS <span id="dpsv">0</span></b><small>누적 <span id="dpst">0</span></small><p><kbd>R</kbd> 쿨타임 초기화 <kbd>T</kbd> 몬스터 소환 <kbd>Y</kbd> 기록 초기화 <kbd>Esc</kbd> 나가기</p></div>
   <div id="tjoy"><div id="joyBase"><div id="joyKnob"></div></div></div><button id="tpause" aria-label="일시정지">II</button><div id="skA" class="skills solo"></div><div id="skB" class="skills"></div>
 </div>
@@ -453,8 +493,9 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
   <div class="nrow"><input id="netIn" maxlength="4" placeholder="방 코드" autocomplete="off" spellcheck="false"><button class="btn alt" id="netJoin">입장</button></div>
   <p id="netMsg" class="nmsg" role="status"></p>
   <button class="btn alt" id="netClose">닫기</button></div></div>
-<div id="verTag">v17.1 · 🥚 이스터에그·쿠폰 · 11월 27일</div>
+<div id="verTag">v18 · 🏰 길드 · 11월 28일</div>
 <button id="diaChip" type="button" aria-label="전리품 상점">💎 <b id="diaT">0</b> <span>상점</span></button>
+<button id="gChip" type="button" aria-label="길드">🏰 <b id="gChipT">길드</b></button><div id="gToast" role="status"></div>
 <div id="diaPop" aria-live="polite"></div>
 <button id="nameChip" type="button" aria-label="닉네임 바꾸기">👤 <b id="nameChipT">플레이어</b> <span aria-hidden="true">✎</span></button>
 <div id="nick" class="center" hidden><div class="box netbox"><h2 class="disp">닉네임 정하기</h2>
@@ -513,6 +554,8 @@ body.revctl #hud::after{content:'방향 뒤집힘!';position:absolute;top:150px;
   <div id="csEnd" hidden></div>
   <button id="csSkip">건너뛰기 ⏭</button>
 </div>
+<div id="gres" class="center" hidden><div class="box"><h2 class="disp" id="grT"></h2><p id="grMsg" style="margin:0 0 10px;color:#cfc7b4;text-align:center;line-height:1.6"></p><button class="btn" id="grAgain">다시 도전 ↻</button><button class="btn alt" id="grBack">길드로</button></div></div>
+<div id="guild" class="center" hidden><div class="box netbox shopbox gbox"><div class="shophead"><h2 class="disp" id="gTitle">🏰 길드</h2><span class="shopdia">💎 <b id="gDia">0</b></span></div><div id="gBody" class="gbody"></div><div class="shopfoot"><button class="btn alt" id="gClose">닫기</button></div></div></div>
 <div id="sres" class="center" hidden><div class="box"><h2 class="disp" id="srT"></h2><div class="stars" id="srStars"></div><p id="srMsg" style="margin:0 0 6px;color:#cfc7b4"></p><button class="btn" id="srNext">다음 판 ▶</button><button class="btn alt" id="srMap">스토리 지도로</button></div></div>
 <div id="stToast"></div>
 <div id="slabels" style="position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2"></div>
@@ -1332,7 +1375,7 @@ function hurt(e,dmg,from,knock=4,c=0xffffff,quiet){if(e.dead||e.spawnT>0)return;
   let blocked=false;if(e.t.shield&&from&&e.stun<=0){const fa=Math.atan2(from.x-e.pos.x,from.z-e.pos.z);if(Math.abs(adiff(e.mesh.rotation.y,fa))<1.1){dmg*=.2;blocked=true;}}
   if(!quiet)dmg=Math.round(dmg);
   if(e.pvpOf){pvpHit(e,dmg,from,knock,c,crit,quiet);return;}
-  if(P&&state==='play'){const dealt=Math.min(dmg,Math.max(e.hp,0));P.dmg+=dealt;if(training){dpsLog.push([time,dealt]);dpsTotal+=dealt;}const ls=(P.rage>0?(P.mods.hx&&P.hero.id==='berserker'?.3:.15):0)+P.mods.leech;if(ls>0&&!P.down)P.hp=Math.min(P.max,P.hp+dealt*ls);}e.hp-=dmg;e.flash=.1;
+  if(P&&state==='play'){const dealt=Math.min(dmg,Math.max(e.hp,0));P.dmg+=dealt;if(training){dpsLog.push([time,dealt]);dpsTotal+=dealt;}const ls=(P.rage>0?(P.mods.hx&&P.hero.id==='berserker'?.3:.15):0)+P.mods.leech;if(ls>0&&!P.down)P.hp=Math.min(P.max,P.hp+dealt*ls);}e.hp-=dmg;if(e.gm)gmDmg(e,dmg);e.flash=.1;
   let dx=0,dz=0;if(from){dx=e.pos.x-from.x;dz=e.pos.z-from.z;const l=Math.hypot(dx,dz)||1;dx/=l;dz/=l;if(knock){e.kv.x+=dx*knock*e.t.km;e.kv.z+=dz*knock*e.t.km;}}
   const hp=V(e.pos.x-dx*e.r*.5,e.t.r*.9+.4,e.pos.z-dz*e.r*.5);
   if(quiet){e.quietSum=(e.quietSum||0)+dmg;sparks(hp,c,1,5,.3);if(e.hp<=0)killE(e);return;}
@@ -1353,7 +1396,7 @@ function killE(e){if(NET.on&&!NET.host&&!NET.kill){e.hp=Math.max(e.hp,1);return;
   if(e.t.bomb)bomberBoom(e,false);
   if(e.type==='slimeking'){for(let i=0;i<5;i++){const a=i/5*TAU;spawn('bigslime',V(e.pos.x+Math.sin(a)*2.2,0,e.pos.z+Math.cos(a)*2.2));}banner('슬라임 왕이 분열했다!');}
   if(P&&P.mods&&P.mods.boom>0&&!e.t.dummy){const b=P.mods.boom,pp=e.pos.clone();later(.08,()=>{aoe(pp,2.6,b,4,0,0,0xffa040);shock(pp,2.8,0xffa040,.35,false);streakBurst(V(pp.x,.5,pp.z),0xffa040,12,10,.4,.3);});}}
-function hitPlayer(pl,dmg,from,knock=5){if(STORY.on&&STORY.cur&&STORY.cur.done)return;if(NET.on&&!NET.host)return;if(!pl||pl.down||pl.inv>0||state!=='play'||training)return;dmg=Math.round(dmg*(pl.armor>0?.4:1));pl.hp-=dmg;pl.inv=.45;pl.hurtT=.45;shake=Math.max(shake,.3);hurtA=.9;num(pl.pos,dmg,'pl');
+function hitPlayer(pl,dmg,from,knock=5){if(STORY.on&&STORY.cur&&STORY.cur.done)return;if(GM.on&&GM.done)return;if(NET.on&&!NET.host)return;if(!pl||pl.down||pl.inv>0||state!=='play'||training)return;dmg=Math.round(dmg*(pl.armor>0?.4:1));pl.hp-=dmg;pl.inv=.45;pl.hurtT=.45;shake=Math.max(shake,.3);hurtA=.9;num(pl.pos,dmg,'pl');
   const hp=V(pl.pos.x,1.1,pl.pos.z);sparks(hp,0xff4040,8,6,.5);streakBurst(hp,0xff5050,12,12,.3,.3);flare(hp,0xff3030,2,.2);
   if(from){const d=pl.pos.clone().sub(from);d.y=0;if(d.lengthSq()>1e-4)pl.kv.add(d.normalize().multiplyScalar(knock));}
   if(pl.mods.thorn>0){const po=P;setCur(pl);aoe(pl.pos,3.2,pl.mods.thorn,7,0,0,0xff9a4a);shock(pl.pos,3.2,0xff9a4a,.3,false);setCur(po);}
@@ -2215,7 +2258,7 @@ function updHud(){if(!pvp){$('#scoreT').textContent=score.toLocaleString();const
   for(const pl of players){pl.ui.fill.style.width=(pl.hp/pl.max*100)+'%';pl.ui.text.textContent=pl.down?(pvp?'KO':`쓰러짐 · 부활 ${Math.floor(pl.rev/REV*100)}%`):`${Math.ceil(pl.hp)} / ${pl.max}`;pl.ui.box.classList.toggle('down',pl.down);
     for(const k in pl.slots){const s=pl.slots[k],cd=pl.hero.skills[k].cd,r=Math.max(pl.cd[k],0);s.querySelector('.ic').style.setProperty('--p',r/cd);
       s.querySelector('b').textContent=r>0&&cd>1?(r<1?r.toFixed(1):Math.ceil(r)):'';s.classList.toggle('ready',r<=0&&!pl.down);}}
-  const boss=enemies.find(e=>e.t.boss&&!e.dead);$('#bossbar').hidden=!boss;if(boss){$('#bossbar b').textContent=boss.t.bname;$('#bossfill').style.width=(boss.hp/boss.max*100)+'%';}
+  const boss=enemies.find(e=>e.t.boss&&!e.dead);$('#bossbar').hidden=!boss;if(GM.on&&GM.ent){$('#bossbar').hidden=false;$('#bossbar b').textContent=GM.k==='war'?`🏯 ${GM.data.vs.name} 성벽`:GM.ent.t.bname;$('#bossfill').style.width=(Math.max(0,GM.hp-GM.pend)/GM.max*100)+'%';}else if(boss){$('#bossbar b').textContent=boss.t.bname;$('#bossfill').style.width=(boss.hp/boss.max*100)+'%';}
   if(training){const now=time;dpsLog=dpsLog.filter(x=>now-x[0]<5);const span=Math.min(5,Math.max(1,now-(dpsLog[0]?dpsLog[0][0]:now)));$('#dpsv').textContent=Math.round(dpsLog.reduce((a,x)=>a+x[1],0)/span).toLocaleString();$('#dpst').textContent=Math.round(dpsTotal).toLocaleString();}}
 
 /* ---------- 게임 흐름 ---------- */
@@ -2237,13 +2280,13 @@ function startGame(ids,tr=false,pv=false){clearWorld();runReset();$('#tpause').h
     players[0].foes=[players[1].selfProxy];players[1].foes=[players[0].selfProxy];enemies=[];pvpS={round:1,wins:[0,0],phase:'count',t:2,timer:90};setCur(players[0]);startRound();}
   $('#dps').hidden=!training;if(pvp){}else if(training){$('#waveT').textContent='훈련장';setupTraining();banner('훈련장');}else{$('#waveT').textContent='WAVE 1';banner(coop?`${players[0].hero.name} & ${players[1].hero.name} 출전!`:players[0].hero.name+' 출전!');}
   for(const pl of players){shock(pl.pos,4,pl.hero.glow,.6);pillar(pl.pos,pl.hero.glow,1.4,14,.8);embers(pl.pos,pl.hero.glow,30,1.5);}cosStart();eggSpawn();}
-function toMenu(){if(STORY.on||state==='sres'){storyToMap();return;}TEAM=null;clearWorld();$('#upg').hidden=true;upState=null;state='menu';menuGroup.visible=true;$('#hud').hidden=true;$('#over').hidden=true;$('#pause').hidden=true;$('#menu').hidden=false;csel.forEach(c=>c.ok=false);renderSel();idleT=0;}
+function toMenu(){if(GM.on){gmExit();return;}if(STORY.on||state==='sres'){storyToMap();return;}TEAM=null;clearWorld();$('#upg').hidden=true;upState=null;state='menu';menuGroup.visible=true;$('#hud').hidden=true;$('#over').hidden=true;$('#pause').hidden=true;$('#menu').hidden=false;csel.forEach(c=>c.ok=false);renderSel();idleT=0;}
 function startWave(){wave++;hpMul=1+(wave-1)*.15;dmMul=1+(wave-1)*.06;const cnt=Math.round((4+wave*2)*(coop?1.5:1));spawnQ=[];
   const pool=[['slime',5],['goblin',wave>=2?4:0],['bowman',wave>=2?2:0],['shaman',wave>=3?2:0],['bomber',wave>=3?2:0],['shieldman',wave>=4?2:0],['brute',wave>=4?1.5:0],['healer',wave>=6?1:0]],tot=pool.reduce((a,b)=>a+b[1],0);
   for(let i=0;i<cnt;i++){let r=Math.random()*tot;for(const[t,w]of pool){if((r-=w)<0){spawnQ.push(t);break;}}}
   let bt=null;if(wave%5===0){bt=pickBoss();spawnQ.length=Math.ceil(cnt/2);spawnQ.unshift(bt);}
   spawnT=.4;inWave=true;$('#waveT').textContent='WAVE '+wave;banner(bt?`WAVE ${wave} · ${ET[bt].bname}`:`WAVE ${wave}`);if(NET.on&&NET.host)netEmit('wave',{w:wave,b:bt});}
-function gameOver(){if(STORY.on){storyFail();return;}if(NET.on&&NET.host)netEmit('over',{st:players.map(p=>[Math.round(p.dmg),p.kills]),w:wave,sc:score,k:kills});state='over';updHud();$('#over h2').textContent='패배';$('#over h2').style.color='';$('#over .res').style.display='';const key=(coop?'heroArenaBestCoop':'heroArenaBest')+(VER>1?'_v'+VER:'');let best=0;try{best=+localStorage.getItem(key)||0;if(score>best)localStorage.setItem(key,score);}catch(e){}
+function gameOver(){if(GM.on){gmEnd('dead');return;}if(STORY.on){storyFail();return;}if(NET.on&&NET.host)netEmit('over',{st:players.map(p=>[Math.round(p.dmg),p.kills]),w:wave,sc:score,k:kills});state='over';updHud();$('#over h2').textContent='패배';$('#over h2').style.color='';$('#over .res').style.display='';const key=(coop?'heroArenaBestCoop':'heroArenaBest')+(VER>1?'_v'+VER:'');let best=0;try{best=+localStorage.getItem(key)||0;if(score>best)localStorage.setItem(key,score);}catch(e){}
   $('#rWave').textContent=wave;$('#rKill').textContent=kills;$('#rScore').textContent=score.toLocaleString();
   $('#overMsg').textContent=score>best?'새 최고 기록입니다!':(best?`${coop?'협동 ':''}최고 기록 ${best.toLocaleString()}점`:(coop?`둘이 함께 ${wave}웨이브까지 버텼어요`:`${players[0].hero.name}(으)로 ${wave}웨이브까지 버텼어요`));
   $('#contrib').hidden=!coop;$('#over .box').classList.toggle('wide',coop);if(coop)$('#contrib').innerHTML=contribHTML();
@@ -2427,11 +2470,11 @@ function update(dt){
   // 웨이브
   if(pvp){updPvp(dt);updHud();return;}
   if(training){updTraining(dt);updHud();return;}
-  if(STORY.on){storyTick(dt);updHud();return;}
+  if(GM.on){gmTick(dt);updHud();return;}if(STORY.on){storyTick(dt);updHud();return;}
   runTick(dt);
   if(NET.on&&!NET.host){updHud();return;}
   if(inWave){if(spawnQ.length){spawnT-=dt;if(spawnT<=0){spawn(spawnQ.shift());spawnT=Math.max(.2,(.9-wave*.04)/(coop?1.4:1));}}
-    else if(!enemies.length){inWave=false;breakT=3;const ua=upgAt(wave);upT=ua?1.3:0;if(!training&&!pvp&&!STORY.on)addDia(1);score+=50*wave;let nx=wave+1;while(!upgAt(nx))nx++;banner(ua===2?`WAVE ${wave} 클리어 · ✨ 큰 강화!`:ua?`WAVE ${wave} 클리어 · 강화!`:`WAVE ${wave} 클리어 · 다음 강화 ${nx}웨이브`);if(NET.on)netEmit('clear');
+    else if(!enemies.length){inWave=false;breakT=3;const ua=upgAt(wave);upT=ua?1.3:0;if(!training&&!pvp&&!STORY.on){addDia(1);gProgAdd(1);}score+=50*wave;let nx=wave+1;while(!upgAt(nx))nx++;banner(ua===2?`WAVE ${wave} 클리어 · ✨ 큰 강화!`:ua?`WAVE ${wave} 클리어 · 강화!`:`WAVE ${wave} 클리어 · 다음 강화 ${nx}웨이브`);if(NET.on)netEmit('clear');
       for(const pl of players){if(pl.down){revive(pl,.3);pl.foot.ring.material.color.setHex(pl.hero.glow);pl.foot.chev.visible=true;continue;}
         const h=Math.round(pl.max*.25);pl.hp=Math.min(pl.max,pl.hp+h);num(pl.pos,'+'+h,'heal');shock(pl.pos,3,0x6ef08e,.6);embers(pl.pos,0x6ef08e,30,1.2);}
       if(wave>=FINAL_WAVE){upT=0;breakT=1e9;RUN.done=true;const rid=RUN.id;setTimeout(()=>{if(state==='play'&&RUN.id===rid)winGame();},1500);}}}
@@ -2572,7 +2615,7 @@ function netApplySnap(s,dt){const fresh=!s.used;s.used=true;
   if(!pvp)for(const e of enemies){if(e.dead||e.nx==null)continue;const dx=e.nx-e.pos.x,dz=e.nz-e.pos.z;if(Math.hypot(dx,dz)>5){e.pos.x=e.nx;e.pos.z=e.nz;}else{const k=Math.min(1,dt*8);e.pos.x+=dx*k;e.pos.z+=dz*k;}}}
 function netWave(w,b){wave=w;hpMul=1+(wave-1)*.15;dmMul=1+(wave-1)*.06;inWave=true;const bt=wave%5===0&&ET[b]?b:null;if(bt)RUN.lastBoss=bt;
   $('#waveT').textContent='WAVE '+wave;banner(bt?`WAVE ${wave} · ${ET[bt].bname}`:`WAVE ${wave}`);}
-function netClear(){inWave=false;addDia(1);banner(`WAVE ${wave} 클리어`);for(const pl of players)if(!pl.down){shock(pl.pos,3,0x6ef08e,.6);embers(pl.pos,0x6ef08e,30,1.2);}}
+function netClear(){inWave=false;addDia(1);gProgAdd(1);banner(`WAVE ${wave} 클리어`);for(const pl of players)if(!pl.down){shock(pl.pos,3,0x6ef08e,.6);embers(pl.pos,0x6ef08e,30,1.2);}}
 function netUpg(o,b){if(!Array.isArray(o)||o.length!==players.length)return;state='upgrade';upBig=!!b;upOpenT=performance.now();
   upState=players.map((pl,ri)=>({pl,opts:o[ri].map(x=>x<0?{...HUPG[pl.hero.id],hx:true}:x>=100?UPG2[x-100]:UPG[x]).filter(Boolean),cur:1,done:false}));renderUpg();$('#upg').hidden=false;}
 function netOver(d){players.forEach((p,i)=>{if(d.st&&d.st[i]){p.dmg=d.st[i][0];p.kills=d.st[i][1];}});wave=d.w;score=d.sc;kills=d.k;if(upState){$('#upg').hidden=true;upState=null;}if(state!=='over')gameOver();}
@@ -2780,13 +2823,13 @@ function nameUi(){const n=savedName();$('#nameChipT').textContent=n;$('#netName'
 // 서버에 요청하고 답을 기다려요 (서버가 오래된 버전이면 답이 없어요)
 function ask(ev,data,ms=8000){return new Promise(res=>{const s=NET.sock;if(!s||!s.connected)return res(null);const t=setTimeout(()=>res(null),ms);s.emit(ev,data,r=>{clearTimeout(t);res(r||null);});});}
 function frApply(r){if(Array.isArray(r.gifts))setTimeout(()=>r.gifts.forEach(onGiftIn),600);FR.v2=true;FR.authed=true;FR.list=(r.friends||[]).map(f=>({uid:f.uid,name:cleanName(f.name)}));FR.online={};for(const f of r.friends||[])if(f.online)FR.online[f.uid]=1;
-  FR.reqs=(r.reqs||[]).map(f=>({uid:f.uid,name:cleanName(f.name)}));if(r.name&&ACCT){ACCT.name=cleanName(r.name);acctSave();}frSave();nameUi();frRender();
+  FR.reqs=(r.reqs||[]).map(f=>({uid:f.uid,name:cleanName(f.name)}));if(r.name&&ACCT){ACCT.name=cleanName(r.name);acctSave();}frSave();nameUi();frRender();gRefresh();
   if(FR.reqs.length)frToast(`받은 친구 요청이 ${FR.reqs.length}개 있어요`);}
 async function frAuth(name){if(!ACCT)return null;const r=await ask('auth',{uid:ACCT.uid,secret:ACCT.secret,name:name||ACCT.name,cache:FR.list.map(f=>f.uid)});
   if(!r)return null;if(r.ok)frApply(r);else FR.authed=false;return r;}
 function frHook(s){s.on('connect',()=>{frAuth().then(r=>{if(r&&!r.ok&&(r.error==='taken'||r.error==='unknown'))openNick(false,r.error);});});
   s.on('presence',onPresence);s.on('friendReqIn',onFriendReqIn);s.on('friendAccepted',onFriendAccepted);s.on('friendRemoved',d=>{FR.list=FR.list.filter(f=>f.uid!==(d&&d.uid));frSave();frRender();});
-  s.on('giftIn',g=>onGiftIn(g));s.on('invited',onInvited);s.on('inviteReply',onInviteReply);s.on('kicked',()=>{FR.authed=false;frToast('다른 곳에서 같은 닉네임으로 접속했어요');frRender();});}
+  s.on('giftIn',g=>onGiftIn(g));gHook(s);s.on('invited',onInvited);s.on('inviteReply',onInviteReply);s.on('kicked',()=>{FR.authed=false;frToast('다른 곳에서 같은 닉네임으로 접속했어요');frRender();});}
 async function frConnect(){ensureUrl();const s=await netConnect();if(!FR.authed&&ACCT){const r=await frAuth();if(r&&!r.ok&&(r.error==='taken'||r.error==='unknown'))openNick(false,r.error);}return s;}
 function frRender(){const on=FR.list.filter(f=>FR.online[f.uid]).length;$('#frBtn').textContent=(on?`친구 · ${on}명 접속`:'친구')+(FR.reqs.length?` · 요청 ${FR.reqs.length}`:'');
   const mk=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
@@ -3927,7 +3970,7 @@ function sBuildEnemy(type){const t=ET[type];
   if(t.base){const r=buildEnemy(t.base);const e={bm:r.bm};tintG(r.g,t.tint,t.tk,e);r.bm=e.bm;if(t.sc2)r.g.scale.setScalar(t.sc2);r.g.userData.warn.position.y=t.r*2+.9;return r;}
   if(t.model)type=t.model;
   const g=new THREE.Group();let bm=std(t.col,{emissive:0x000000,roughness:.3,metalness:.2});const add=(...m)=>m.forEach(x=>g.add(x));const pe=()=>new THREE.MeshBasicMaterial({color:0xc070ff}),bk=new THREE.MeshBasicMaterial({color:0x140818});
-  const bmRef={bm};if(p2Model(type,t,g,add,bmRef)){bm=bmRef.bm;}
+  const bmRef={bm};if(type==='ggate')gateModel(g,add);else if(p2Model(type,t,g,add,bmRef)){bm=bmRef.bm;}
   else if(type==='goo'||type==='goolet'){const s=type==='goo'?1:.6,b=mk(new THREE.SphereGeometry(.75*s,20,14),bm,0,.55*s,0);b.scale.y=.72;add(b);
     for(const sx of[-1,1])add(mk(new THREE.SphereGeometry(.12*s,8,8),pe(),.24*s*sx,.72*s,.56*s));g.userData.squash=b;}
   else if(type==='spider'){add(mk(new THREE.SphereGeometry(.34,12,10),bm,0,.45,.15),mk(new THREE.SphereGeometry(.45,12,10),bm,0,.55,-.45));const lm=std(0x0a0610);
@@ -3994,7 +4037,7 @@ function comixAI(e,dt){const ph2=!!e.t.ph2,S=STORY.cur;
   if(e.sb<=0){e.sb=ph2?8:11;comixClones(e,ph2?6:4);}
   if(e.sc<=0){e.sc=ph2?7:9.5;fakeSigns(e);}
   if(e.sd<=0){e.sd=ph2?11:15;if(!e.t.flee||(S&&S.n>20)){SREV=3;document.body.classList.add('revctl');banner('뒤죽박죽 마법!');laughSnd();}}}
-function sBossAI(e,dt){const t=e.t,ty=t.ai||e.type;
+function sBossAI(e,dt){const t=e.t,ty=t.ai||e.type;if(ty==='ggate'){gateAI(e,dt);return;}
   if(ty==='cocoon'){e.cocT=(e.cocT==null?2:e.cocT)-dt;if(e.cocT<=0){const S=STORY.cur;e.cocT=Math.max(2.2,4.2-(S?S.c:0)*.3);for(let i=0;i<2;i++){const a=rnd(0,TAU);spawnTok(t.spawns?t.spawns[i]:(i?'goolet':'goo'),V(e.pos.x+Math.sin(a)*2.8,0,e.pos.z+Math.cos(a)*2.8));}ringBurst(e.pos,t.spawns?0xffd36a:0xa060ff,14,6,.5);}return;}
   if(t.dh){dhAI(e,dt);return;}
   e.sa=(e.sa==null?3:e.sa)-dt;e.sb=(e.sb==null?5:e.sb)-dt;e.sc=(e.sc==null?8:e.sc)-dt;e.sd=(e.sd==null?12:e.sd)-dt;
@@ -4802,7 +4845,7 @@ function storyKill(e){const S=STORY.cur;if(!S||S.done)return;
 function stClear(){const S=STORY.cur;if(!S||S.done)return;S.done=true;const pl=players[0];pl.inv=99;SREV=0;document.body.classList.remove('revctl');
   for(const e of enemies)if(!e.dead){e.dead=true;e.dying=.35;if(e.bar)e.bar.remove();puff(V(e.pos.x,1,e.pos.z),0x9a3aff,8,3,1.4);}
   const r=pl.hp/pl.max,st=r>=.7?3:r>=.35?2:1;S.stars=st;const prev=STS.clr[S.id]||0;STS.clr[S.id]=Math.max(prev,st);stSave();
-  if(st>prev)addDia((st-prev)*2,`별 ${st-prev}개`);if(!prev&&(S.kind==='boss'||S.kind==='mini'))addDia(S.kind==='boss'?10:5,'보스 첫 클리어');if(!prev&&!stNext(S.id))addDia(100,'스토리 완료!');
+  gProgAdd(1);if(st>prev)addDia((st-prev)*2,`별 ${st-prev}개`);if(!prev&&(S.kind==='boss'||S.kind==='mini'))addDia(S.kind==='boss'?10:5,'보스 첫 클리어');if(!prev&&!stNext(S.id))addDia(100,'스토리 완료!');
   banner(`${S.id} 클리어!`);shock(pl.pos,4,0xffd36a,.6);pillar(pl.pos,0xffd36a,1.4,14,.8);embers(pl.pos,0xffd36a,30,1.5);
   setTimeout(()=>{if(!STORY.on||STORY.cur!==S)return;const k='a'+S.id;if(SCN[k]&&!STS.seen[k])playScene(k,()=>stResult(S));else stResult(S);},1600);}
 function stResult(S){state='sres';$('#hud').hidden=true;const fin=!stNext(S.id);
@@ -5036,7 +5079,7 @@ function openShop(){$('#shop').hidden=false;renderShop();}
 function closeShop(){if($('#shop').hidden)return;$('#shop').hidden=true;idleT=0;}
 function renderShop(){updDia();const tabs=$('#shopTabs');tabs.innerHTML='';
   for(const[k,n]of COS_CAT){const b=document.createElement('button');b.className='rktab'+(k===SHOP_CAT?' on':'');b.textContent=n;b.onclick=()=>{SHOP_CAT=k;renderShop();};tabs.appendChild(b);}
-  const grid=$('#shopGrid');grid.innerHTML='';const list=SHOP_CAT==='mine'?ITEMS.filter(i=>WAL.own.includes(i.id)):ITEMS.filter(i=>i.cat===SHOP_CAT);
+  const grid=$('#shopGrid');grid.innerHTML='';const list=SHOP_CAT==='mine'?ITEMS.filter(i=>WAL.own.includes(i.id)):ITEMS.filter(i=>i.cat===SHOP_CAT&&(!i.v.gx||WAL.own.includes(i.id)));
   if(!list.length){const p=document.createElement('p');p.className='nsub';p.textContent='아직 가진 전리품이 없어요. 다이아를 모아서 사 보세요!';grid.appendChild(p);}
   for(const it of list){const own=WAL.own.includes(it.id),eqd=WAL.eq[it.cat]===it.id,[rn,rc]=RAR(it.price),card=document.createElement('div');card.className='sitem'+(eqd?' eq':'')+(own?' own':'');card.style.setProperty('--rc',rc);
     const pv=document.createElement('div');pv.className='spv';if(it.cat==='sticker')pv.innerHTML=stkHTML(it.id,true);else if(it.cat==='title'){pv.className='spv ttl';pv.textContent=`«${it.n}»`;}else pv.textContent=it.e;
@@ -5155,6 +5198,172 @@ document.querySelectorAll('.mbtn[data-m]').forEach(b=>b.onclick=()=>setMode(+b.d
 buildChips();setFocus(0,true);
 function setVersion(v){if(VER===v&&showcase.length)return;VER=v;HEROES=[HEROES1,HEROES2,HEROES3,HEROES4,HEROES5][v-1];buildCarousel();spot.position.z=CR;carRot=0;buildChips();csel[0].i=0;csel[1].i=1;setFocus(0,true);
   $('#menu h1').textContent=v>1?'히어로 아레나 '+v:'히어로 아레나';document.body.classList.toggle('v2',v===2);document.body.classList.toggle('v3',v===3);document.body.classList.toggle('v4',v===4);document.body.classList.toggle('v5',v===5);document.querySelectorAll('.ver').forEach(b=>b.classList.toggle('sel',+b.dataset.v===v));}
+/* ───────── 길드 ───────── */
+const GBOSS=['frostdragon','nox','sandgiant','comix','deepjelly','stormguard'];
+const GBOSS_ITEM={frostdragon:'b_gice',nox:'a_gnox',sandgiant:'h_gsand',comix:'ti_gcomix',deepjelly:'t_gdeep',stormguard:'b_gstorm'};
+IT('b_gice','back','얼음룡 날개','❄️',500,{k:'wings',c:0x9ad8ff,shape:'dragon',gx:1});IT('a_gnox','aura','녹스의 그림자','🌑',500,{c:0x7a2aff,gx:1});
+IT('h_gsand','hat','모래 거인의 왕관','👑',500,{k:'crown',c:0xd8b070,c2:0x4ad0ff,gx:1});IT('ti_gcomix','title','광대 사냥꾼','🏷️',500,{gx:1});
+IT('t_gdeep','trail','심해 발자국','🌊',500,{c:0x2ab0c0,gx:1});IT('b_gstorm','back','폭풍 제트팩','🌪️',500,{k:'jet',c:0xd0e8ff,gx:1});
+IT('ti_gwar','title','성 정복자','🏷️',500,{gx:1});IT('ti_gboss','title','길드 보스 사냥꾼','🏷️',500,{gx:1});
+const GU={g:null,embs:[],cols:[],tab:'info',ntab:'join',list:null,rank:null,q:'',emb:'',col:'',busy:false,cost:100,
+  hero:(()=>{try{return localStorage.getItem('heroArenaGHero')||'knight';}catch(e){return'knight';}})()};
+const gEsc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const gTier=lv=>lv>=20?4:lv>=10?3:lv>=5?2:1;
+function gEmbHTML(b,sm){return`<div class="gemb t${gTier(b.lv||1)}${sm?' sm':''}" style="--gc:${gEsc(b.col)}">${gEsc(b.emb)}</div>`;}
+function gToast(t){const el=$('#gToast');el.textContent=t;el.classList.remove('on');void el.offsetWidth;el.classList.add('on');clearTimeout(gToast.t);gToast.t=setTimeout(()=>el.classList.remove('on'),3200);}
+const gFmt=n=>Math.max(0,Math.round(n)).toLocaleString();
+function gLeft(ms){ms=Math.max(0,ms);const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000);return h?`${h}시간 ${m}분`:`${m}분`;}
+function gChipUi(){const g=GU.g;$('#gChipT').textContent=g?g.name:'길드';$('#gChip').firstChild.textContent=g?g.emb+' ':'🏰 ';$('#gChip').classList.toggle('war',!!(g&&g.war));
+  let s=$('#nameChipG');if(!s){s=document.createElement('span');s.id='nameChipG';$('#nameChip').insertBefore(s,$('#nameChipT'));}s.textContent=g?g.emb:'';}
+async function gRefresh(){const r=await ask('gGet',{});if(!r||!r.ok)return false;GU.g=r.g;GU.embs=r.embs||GU.embs;GU.cols=r.cols||GU.cols;GU.cost=r.createCost||100;
+  if(!GU.emb)GU.emb=GU.embs[0];if(!GU.col)GU.col=GU.cols[0];gChipUi();if(!$('#guild').hidden)gRender();return true;}
+async function openGuild(){if(!ACCT){return needAcct(openGuild);}$('#guild').hidden=false;$('#gBody').innerHTML='<p class="nsub" style="text-align:center">서버에 연결하는 중… (처음엔 50초쯤 걸릴 수 있어요)</p>';
+  await frConnect();const ok=await gRefresh();if(!ok){$('#gBody').innerHTML='<p class="nsub" style="text-align:center">서버에 연결하지 못했어요. 잠시 뒤 다시 열어 주세요.</p>';return;}
+  if(!GU.g){GU.list=null;gLoadList();}gRender();}
+function closeGuild(){$('#guild').hidden=true;idleT=0;}
+async function gLoadList(){const r=await ask('gList',{q:GU.q});GU.list=r&&r.ok?r.list:[];if(!$('#guild').hidden)gRender();}
+async function gLoadRank(){const r=await ask('gRank',{});GU.rank=r&&r.ok?r:{list:[]};if(!$('#guild').hidden)gRender();}
+function gTabs(items,cur,fn){const d=document.createElement('div');d.className='rktabs gtabs';for(const[k,n]of items){const b=document.createElement('button');b.type='button';b.className='rktab'+(k===cur?' on':'');b.textContent=n;b.onclick=()=>fn(k);d.appendChild(b);}return d;}
+function gBtn(t,cls,fn,dis){const b=document.createElement('button');b.type='button';b.className='btn'+(cls?' '+cls:'');b.textContent=t;b.disabled=!!dis;b.onclick=fn;return b;}
+function gEl(html){const d=document.createElement('div');d.innerHTML=html;return d.firstElementChild||d;}
+function gBar(cls,v,max,label){return`<div class="gbar ${cls}"><i style="width:${max?Math.max(0,Math.min(100,v/max*100)):0}%"></i><span>${label}</span></div>`;}
+function gRender(){const body=$('#gBody');body.innerHTML='';$('#gDia').textContent=WAL.d.toLocaleString();const g=GU.g;
+  if(!g){$('#gTitle').textContent='🏰 길드';body.appendChild(gTabs([['join','🔎 길드 찾기'],['make','🏗️ 만들기'],['rank','🏆 랭킹']],GU.ntab,k=>{GU.ntab=k;if(k==='rank')gLoadRank();gRender();}));
+    if(GU.ntab==='join')gJoinView(body);else if(GU.ntab==='make')gMakeView(body);else gRankView(body);return;}
+  $('#gTitle').textContent='🏰 내 길드';
+  const top=gEl(`<div class="gcard">${gEmbHTML(g)}<div class="ginfo"><h3>${gEsc(g.name)}<span class="gtag">Lv.${g.lv}</span>${g.war?'<span class="gtag red">⚔️ 전쟁 중</span>':''}${g.shield?'<span class="gtag blue">🛡️ 보호막</span>':''}</h3>
+    <small>👥 ${g.n}/${g.cap}명 · 🏯 정복한 성 ${g.castles} · 💎 창고 ${gFmt(g.bank)} · 🐉 보스 ${g.bossKills}마리</small></div></div>`);body.appendChild(top);
+  body.appendChild(gTabs([['info','📜 정보'],['chat','💬 채팅'],['goal','🎯 목표·보스'],['war','⚔️ 전쟁'],['rank','🏆 랭킹']],GU.tab,k=>{GU.tab=k;if(k==='rank')gLoadRank();gRender();}));
+  const v=document.createElement('div');body.appendChild(v);
+  ({info:gInfoView,chat:gChatView,goal:gGoalView,war:gWarView,rank:gRankView})[GU.tab](v);}
+function gJoinView(b){const row=gEl('<div class="gin"><input id="gQ" maxlength="12" placeholder="길드 이름 검색"></div>');const inp=row.querySelector('input');inp.value=GU.q;
+  const go=()=>{GU.q=inp.value.trim();GU.list=null;gRender();gLoadList();};inp.onkeydown=e=>{if(e.key==='Enter')go();e.stopPropagation();};row.appendChild(gBtn('찾기','',go));b.appendChild(row);
+  b.appendChild(gEl('<p class="gnote">길드에 들어가면 같이 주간 목표를 채우고, 보스를 잡고, 다른 길드와 전쟁할 수 있어요!</p>'));
+  if(!GU.list){b.appendChild(gEl('<p class="nsub">불러오는 중…</p>'));return;}
+  if(!GU.list.length){b.appendChild(gEl('<p class="nsub">아직 길드가 없어요. [만들기]에서 첫 길드를 만들어 보세요!</p>'));return;}
+  for(const x of GU.list){const r=gEl(`<div class="grow">${gEmbHTML(x,1)}<div class="gn">${gEsc(x.name)} <small>Lv.${x.lv} · ${x.n}/${x.cap}명${x.war?' · ⚔️ 전쟁 중':''}${x.shield?' · 🛡️':''}</small></div></div>`);
+    r.appendChild(gBtn(x.n>=x.cap?'꽉 참':'가입','',()=>gJoin(x),x.n>=x.cap));b.appendChild(r);}}
+async function gJoin(x){if(GU.busy)return;GU.busy=true;const r=await ask('gJoin',{gid:x.gid});GU.busy=false;
+  if(!r||!r.ok){gToast(r&&r.error==='full'?'인원이 꽉 찼어요':'가입하지 못했어요');gLoadList();return;}GU.g=r.g;GU.tab='info';gChipUi();gRender();gToast(`${x.emb} ${x.name} 길드에 들어왔어요!`);}
+function gMakeView(b){b.appendChild(gEl('<p class="gsec">길드 이름 (2~12글자)</p>'));const inp=gEl('<input id="gName" maxlength="12" placeholder="예: 뭉치 수호대" style="width:100%">');inp.onkeydown=e=>e.stopPropagation();b.appendChild(inp);
+  b.appendChild(gEl('<p class="gsec">문장</p>'));const pe=gEl('<div class="gpick"></div>');for(const e of GU.embs){const k=gBtn(e,GU.emb===e?'on':'',()=>{GU.emb=e;pe.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.textContent===e));pv();});k.className=GU.emb===e?'on':'';pe.appendChild(k);}b.appendChild(pe);
+  b.appendChild(gEl('<p class="gsec">색</p>'));const pc=gEl('<div class="gpick"></div>');for(const c of GU.cols){const k=document.createElement('button');k.type='button';k.style.background=c;k.className=GU.col===c?'on':'';k.onclick=()=>{GU.col=c;pc.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===k));pv();};pc.appendChild(k);}b.appendChild(pc);
+  const prev=document.createElement('div');b.appendChild(prev);const pv=()=>{prev.innerHTML=`<div class="gcard">${gEmbHTML({emb:GU.emb,col:GU.col,lv:1})}<div class="ginfo"><h3>${gEsc(inp.value.trim()||'길드 이름')}</h3><small>새 길드는 3일 동안 🛡️ 보호막이 있어서 전쟁 선포를 받지 않아요.</small></div></div>`;};inp.oninput=pv;pv();
+  const go=gBtn(`💎 ${GU.cost}로 길드 만들기`,'gbig',async()=>{const n=inp.value.trim();if(n.length<2)return gToast('이름을 2글자 이상 써 주세요');if(WAL.d<GU.cost)return gToast(`다이아가 ${GU.cost}개 필요해요`);
+    if(GU.busy)return;GU.busy=true;const r=await ask('gCreate',{name:n,emb:GU.emb,col:GU.col});GU.busy=false;
+    if(!r||!r.ok)return gToast(r&&r.error==='taken'?'이미 있는 길드 이름이에요':r&&r.error==='already'?'이미 길드에 들어가 있어요':'만들지 못했어요');
+    WAL.d-=GU.cost;walSave();updDia();GU.g=r.g;GU.tab='info';gChipUi();gRender();gToast(`🏰 ${n} 길드를 만들었어요!`);},WAL.d<GU.cost);b.appendChild(go);
+  if(WAL.d<GU.cost)b.appendChild(gEl(`<p class="gnote">다이아가 ${GU.cost-WAL.d}개 더 필요해요. 웨이브를 깨면 모을 수 있어요!</p>`));}
+function gRankView(b){const R=GU.rank;if(!R){b.appendChild(gEl('<p class="nsub">불러오는 중…</p>'));if(!gRankView.ld){gRankView.ld=1;gLoadRank().then(()=>gRankView.ld=0);}return;}
+  b.appendChild(gEl('<p class="gnote">점수 = 길드 경험치(기부) + 정복한 성 ×3000 + 보스 처치 ×1500 + 길드원 ×200</p>'));
+  if(!R.list.length)b.appendChild(gEl('<p class="nsub">아직 길드가 없어요.</p>'));
+  R.list.forEach((x,i)=>{const me=GU.g&&x.gid===GU.g.gid;b.appendChild(gEl(`<div class="grow"${me?' style="border-color:#ffd36a"':''}><b style="width:28px;text-align:center;color:${i<3?'#ffd36a':'#a9b1c2'}">${['🥇','🥈','🥉'][i]||i+1}</b>${gEmbHTML(x,1)}<div class="gn">${gEsc(x.name)} <small>Lv.${x.lv} · ${x.n}명 · 🏯${x.castles}</small></div><b style="color:#ffd36a">${gFmt(x.score)}</b></div>`));});}
+function gInfoView(b){const g=GU.g,lead=g.leader===g.me;
+  b.appendChild(gEl('<p class="gsec">💎 길드 창고에 기부하기</p>'));b.appendChild(gEl('<p class="gnote">기부한 다이아는 길드 경험치가 돼요. 레벨 5·10·20이 되면 문장 테두리가 화려해져요! 창고 다이아는 전쟁 선포에 써요.</p>'));
+  const dr=document.createElement('div');dr.className='rktabs';for(const n of[10,50,100,500]){const k=gBtn(`💎${n}`,'alt',()=>gDonate(n),WAL.d<n);k.style.flex='1';k.style.margin='0';dr.appendChild(k);}b.appendChild(dr);
+  b.appendChild(gEl(`<p class="gsec">👥 길드원 ${g.n}명</p>`));
+  for(const m of[...g.members].sort((a,b)=>(b.leader-a.leader)||(b.online-a.online))){const h=ALLH.find(x=>x.id===m.hero);const r=gEl(`<div class="grow"><span class="gdot${m.online?' on':''}"></span><div class="gn">${m.leader?'👑 ':''}${gEsc(m.name)}${m.uid===g.me?' (나)':''} <small>${h?h.name:'영웅 미정'}</small></div></div>`);
+    if(lead&&m.uid!==g.me){r.appendChild(gBtn('👑','alt',()=>showPrompt(`${m.name}님을 길드장으로 만들까요?`,'넘기기','취소',async()=>{await ask('gLeader',{uid:m.uid});gRefresh();})));
+      r.appendChild(gBtn('내보내기','alt',()=>showPrompt(`${m.name}님을 길드에서 내보낼까요?`,'내보내기','취소',async()=>{await ask('gKick',{uid:m.uid});gRefresh();})));}b.appendChild(r);}
+  if(lead){b.appendChild(gEl('<p class="gsec">🎨 문장 바꾸기 (길드장)</p>'));const pe=gEl('<div class="gpick"></div>');for(const e of GU.embs){const k=gBtn(e,g.emb===e?'on':'',async()=>{await ask('gEdit',{emb:e});gRefresh();});k.className=g.emb===e?'on':'';pe.appendChild(k);}b.appendChild(pe);
+    const pc=gEl('<div class="gpick"></div>');for(const c of GU.cols){const k=document.createElement('button');k.type='button';k.style.background=c;k.className=g.col===c?'on':'';k.onclick=async()=>{await ask('gEdit',{col:c});gRefresh();};pc.appendChild(k);}b.appendChild(pc);}
+  if(g.log.length){b.appendChild(gEl('<p class="gsec">📜 길드 소식</p>'));b.appendChild(gEl(`<div class="glog">${g.log.slice().reverse().map(l=>gEsc(l.t)).join('<br>')}</div>`));}
+  b.appendChild(gBtn('🚪 길드 나가기','alt gbig',()=>showPrompt(g.n<=1?'마지막 길드원이에요. 나가면 길드가 사라져요! 나갈까요?':`${g.name} 길드에서 나갈까요?`,'나가기','취소',async()=>{await ask('gLeave',{});GU.g=null;GU.list=null;gChipUi();gLoadList();gRender();})));}
+async function gDonate(n){if(WAL.d<n||GU.busy)return;GU.busy=true;const r=await ask('gDonate',{d:n});GU.busy=false;if(!r||!r.ok)return gToast('기부하지 못했어요');WAL.d-=n;walSave();updDia();gToast(`💎 ${n}개를 기부했어요!`);gRefresh();}
+function gChatView(b){const box=gEl('<div class="gchat" id="gChatBox"></div>');for(const m of GU.g.chat)box.appendChild(gChatLine(m));b.appendChild(box);
+  const row=gEl('<div class="gin"><input maxlength="120" placeholder="길드원에게 할 말"></div>');const inp=row.querySelector('input');const send=async()=>{const t=inp.value.trim();if(!t)return;inp.value='';const r=await ask('gChat',{t});if(!r||!r.ok)gToast('보내지 못했어요');};
+  inp.onkeydown=e=>{e.stopPropagation();if(e.key==='Enter')send();};row.appendChild(gBtn('보내기','',send));b.appendChild(row);setTimeout(()=>{box.scrollTop=box.scrollHeight;inp.focus();},30);}
+function gChatLine(m){const d=document.createElement('div');if(GU.g&&m.uid===GU.g.me)d.className='me';const b=document.createElement('b');b.textContent=m.n;const s=document.createElement('span');s.textContent=m.t;const t=document.createElement('small');const dt=new Date(m.at);t.textContent=`${dt.getHours()}:${String(dt.getMinutes()).padStart(2,'0')}`;d.append(b,s,t);return d;}
+function gHeroPick(b){const row=gEl('<div class="gin"><span style="align-self:center;font-weight:700;color:#ffd36a;white-space:nowrap">출전 영웅</span></div>');const sel=document.createElement('select');sel.style.cssText='flex:1;min-height:42px;border-radius:10px;background:#151b28;color:#fff;border:1px solid #3d4860;font:600 15px "Noto Sans KR",sans-serif;padding:0 8px';
+  for(const h of ALLH.filter(h=>!h.story)){const o=document.createElement('option');o.value=h.id;o.textContent=h.name;sel.appendChild(o);}if(!ALLH.some(h=>h.id===GU.hero&&!h.story))GU.hero='knight';sel.value=GU.hero;
+  sel.onchange=()=>{GU.hero=sel.value;try{localStorage.setItem('heroArenaGHero',GU.hero);}catch(e){}ask('gHero',{hero:GU.hero});};sel.onkeydown=e=>e.stopPropagation();row.appendChild(sel);b.appendChild(row);}
+function gGoalView(b){const g=GU.g,w=g.wk,bo=g.boss,base=GBOSS[bo.week%GBOSS.length],bn=ET[base]?ET[base].bname:'보스',it=itemById(GBOSS_ITEM[base]);
+  b.appendChild(gEl('<p class="gsec">🎯 이번 주 길드 목표</p>'));b.appendChild(gEl(`<p class="gnote">길드원 모두가 깬 웨이브 수를 합쳐요. 스토리 판을 깨도 1씩 올라가요. 다 채우면 모두 💎50!</p>`));
+  b.appendChild(gEl(gBar('',w.prog,w.goal,`${gFmt(Math.min(w.prog,w.goal))} / ${gFmt(w.goal)} 웨이브`)));
+  if(w.prog>=w.goal)b.appendChild(gBtn(w.claimed?'✅ 이번 주 보상 받음':'🎁 💎50 받기','gbig',async()=>{const r=await ask('gClaim',{kind:'wk'});if(r&&r.ok){addDia(r.d,'길드 주간 목표');gRefresh();}},w.claimed));
+  b.appendChild(gEl(`<p class="gsec">🐉 이번 주 길드 보스 · ${gEsc(bn)}</p>`));
+  b.appendChild(gEl(`<p class="gnote">길드원이 넣은 데미지가 모두 쌓여요. 한 판에 90초, 하루에 3번 도전할 수 있어요. 잡으면 모두 💎80 + <b style="color:#ffd36a">${it?it.e+' '+gEsc(it.n):''}</b> (길드 전용)!</p>`));
+  b.appendChild(gEl(`<div id="gBossBar">${gBar('boss',bo.hp,bo.max,bo.killed?'처치 완료!':`${gFmt(bo.hp)} / ${gFmt(bo.max)}`)}</div>`));
+  if(bo.killed)b.appendChild(gBtn(bo.claimed?'✅ 보스 보상 받음':'🎁 보스 보상 받기','gbig',async()=>{const r=await ask('gClaim',{kind:'boss'});if(r&&r.ok){addDia(r.d,'길드 보스 처치');gGive(GBOSS_ITEM[GBOSS[r.week%GBOSS.length]]);gGive('ti_gboss');gRefresh();}},bo.claimed));
+  else{gHeroPick(b);b.appendChild(gBtn(`⚔️ 보스에게 도전 (오늘 ${bo.tries}/${bo.maxTries})`,'gbig',()=>gmGo('boss'),bo.tries>=bo.maxTries));}
+  const top=[...g.members].filter(m=>m.dmg>0).sort((a,c)=>c.dmg-a.dmg).slice(0,10);if(top.length){b.appendChild(gEl('<p class="gsec">이번 주 보스 데미지 순위</p>'));top.forEach((m,i)=>b.appendChild(gEl(`<div class="grow"><b style="width:24px">${i+1}</b><div class="gn">${gEsc(m.name)}</div><b style="color:#ff9a6a">${gFmt(m.dmg)}</b></div>`)));}}
+function gGive(id){const it=itemById(id);if(!it||WAL.own.includes(id))return;WAL.own.push(id);walSave();diaPopShow(`🎉 ${it.n} 획득!`);}
+function gWarView(b){const g=GU.g,lead=g.leader===g.me;
+  if(g.war){const W=g.war;b.appendChild(gEl(`<div class="gvs"><div>${gEmbHTML(g)}<div class="ginfo"><h3>${gEsc(g.name)}</h3></div></div><b>VS</b><div>${gEmbHTML(W.vs)}<div class="ginfo"><h3>${gEsc(W.vs.name)}</h3></div></div></div>`));
+    b.appendChild(gEl(`<p class="gnote" style="text-align:center">⏱ 남은 시간 <b style="color:#fff">${gLeft(W.end-Date.now())}</b> · 먼저 상대 성벽을 0으로 만들면 승리! 시간이 끝나면 성벽이 더 많이 남은 쪽이 이겨요.</p>`));
+    b.appendChild(gEl('<p class="gsec">🛡️ 우리 성벽</p>'));b.appendChild(gEl(`<div id="gWallMy">${gBar('mine',W.my.hp,W.my.max,`${gFmt(W.my.hp)} / ${gFmt(W.my.max)}`)}</div>`));
+    b.appendChild(gEl(`<p class="gsec">🏯 ${gEsc(W.vs.name)} 성벽</p>`));b.appendChild(gEl(`<div id="gWallEn">${gBar('wall',W.en.hp,W.en.max,`${gFmt(W.en.hp)} / ${gFmt(W.en.max)}`)}</div>`));
+    b.appendChild(gEl(`<p class="gnote">내가 깎은 성벽: <b style="color:#ffd36a">${gFmt(W.me)}</b> · 지면 우리 길드는 사라지고 모두 상대 길드로 흡수돼요! 우리 성벽은 상대가 공격할 때만 깎여요.</p>`));
+    gHeroPick(b);b.appendChild(gBtn('⚔️ 상대 성 공격하러 가기','gbig',()=>gmGo('war')));return;}
+  b.appendChild(gEl(`<p class="gnote">길드장이 💎${g.warCost||300}(길드 창고)를 내고 다른 길드에 전쟁을 선포할 수 있어요. 전쟁은 24시간! 이긴 길드는 상대 성을 정복하고, 진 길드는 사라져서 길드원 전부가 이긴 길드로 들어가요. 🛡️ 보호막(만든 지 3일)이 있는 길드에는 선포할 수 없고, 선포하면 내 보호막도 사라져요.</p>`));
+  if(!lead)b.appendChild(gEl('<p class="nsub">전쟁 선포는 길드장만 할 수 있어요.</p>'));
+  if(!GU.list){gLoadList();b.appendChild(gEl('<p class="nsub">불러오는 중…</p>'));return;}
+  for(const x of GU.list.filter(x=>x.gid!==g.gid)){const r=gEl(`<div class="grow">${gEmbHTML(x,1)}<div class="gn">${gEsc(x.name)} <small>Lv.${x.lv} · ${x.n}명 · 🏯${x.castles}${x.shield?` · 🛡️ ${gLeft(x.shield-Date.now())}`:''}${x.war?' · ⚔️ 전쟁 중':''}</small></div></div>`);
+    if(lead)r.appendChild(gBtn('⚔️ 선포','',()=>gDeclare(x),!!x.shield||!!x.war||g.bank<(g.warCost||300)));b.appendChild(r);}
+  if(lead&&g.bank<(g.warCost||300))b.appendChild(gEl(`<p class="gnote">길드 창고에 💎${(g.warCost||300)-g.bank}개가 더 필요해요. [정보] 탭에서 기부할 수 있어요.</p>`));}
+function gDeclare(x){showPrompt(`${x.emb} ${x.name} 길드에 전쟁을 선포할까요? 창고 💎${GU.g.warCost||300}이 들고, 지면 우리 길드가 사라져요!`,'선포!','취소',async()=>{const r=await ask('gWar',{vs:x.gid});
+  if(!r||!r.ok){gToast({shield:'보호막이 있는 길드예요',cost:'창고 다이아가 부족해요',busy:'이미 전쟁 중이에요',enbusy:'상대가 다른 전쟁 중이에요',leader:'길드장만 선포할 수 있어요'}[r&&r.error]||'선포하지 못했어요');return;}
+  GU.list=null;await gRefresh();});}
+// 실시간 소식
+function gHook(s){s.on('gChat',m=>{if(!GU.g)return;GU.g.chat.push(m);if(GU.g.chat.length>60)GU.g.chat.shift();const box=$('#gChatBox');if(box&&!$('#guild').hidden){box.appendChild(gChatLine(m));box.scrollTop=box.scrollHeight;}else if(m.uid!==GU.g.me&&state!=='play')gToast(`💬 ${m.n}: ${m.t}`);});
+  s.on('gUpd',d=>{if(d&&d.goal)gToast('🎯 이번 주 길드 목표 달성! 길드에서 보상을 받으세요');gRefresh();});
+  s.on('gBoss',d=>{if(GM.on&&GM.k==='boss'){GM.hp=d.hp;if(d.killed)gmWin();}if(GU.g){GU.g.boss.hp=d.hp;if(d.killed)GU.g.boss.killed=true;const el=$('#gBossBar');if(el)el.innerHTML=gBar('boss',d.hp,GU.g.boss.max,d.killed?'처치 완료!':`${gFmt(d.hp)} / ${gFmt(GU.g.boss.max)}`);}});
+  s.on('gWall',w=>{const g=GU.g;if(!g||!g.war)return;const en=g.war.vs.gid;g.war.my.hp=w.hp[g.gid];g.war.en.hp=w.hp[en];
+    if(GM.on&&GM.k==='war'){GM.hp=w.hp[en];GM.myHp=w.hp[g.gid];}
+    const a=$('#gWallMy'),b=$('#gWallEn');if(a)a.innerHTML=gBar('mine',g.war.my.hp,g.war.my.max,`${gFmt(g.war.my.hp)} / ${gFmt(g.war.my.max)}`);if(b)b.innerHTML=gBar('wall',g.war.en.hp,g.war.en.max,`${gFmt(g.war.en.hp)} / ${gFmt(g.war.en.max)}`);});
+  s.on('gWarStart',d=>{gToast(d.atk?`⚔️ ${d.vs} 길드와 전쟁 시작! (24시간)`:`🚨 ${d.vs} 길드가 우리에게 전쟁을 선포했어요!`);GU.list=null;gRefresh();});
+  s.on('gWarEnd',d=>{if(d.draw)gToast(`⚔️ ${d.vs} 길드와의 전쟁이 무승부로 끝났어요`);else if(d.won){gToast(`🏯 승리! ${d.lose} 길드의 성을 정복했어요!`);gGive('ti_gwar');addDia(100,'성 정복!');}else gToast(`💔 패배… 이제 ${d.win} 길드의 길드원이 됐어요`);
+    if(GM.on&&GM.k==='war')gmEnd(d.won?'won':'lost');GU.list=null;gRefresh();});
+  s.on('gKicked',d=>{gToast(`${d.name} 길드에서 내보내졌어요`);GU.g=null;gChipUi();if(!$('#guild').hidden)gRender();});}
+function gProgAdd(n){if(GU.g&&NET.sock&&NET.sock.connected)ask('gProg',{n}).then(r=>{if(r&&r.ok&&GU.g){GU.g.wk.prog=r.prog;}});}
+function gHeroSend(id){if(GU.g&&id&&!/^s_/.test(id)&&NET.sock&&NET.sock.connected)ask('gHero',{hero:id});}
+
+/* ── 길드 전투 (보스 · 성 공격) ── */
+const GM={on:false};
+function gbType(base){const k='gb_'+base;if(!ET[k]){const t=ET[base];ET[k]=Object.assign({},t,{hp:1e9,sc:0,ai:t.ai||base,bname:'🐉 '+t.bname,gmT:1});if(!t.base)ET[k].model=t.model||base;delete ET[k].flee;delete ET[k].spawns;}return k;}
+function gdType(hero,name){const id=ALLH.some(h=>h.id===hero&&!h.story)?hero:pick(ALLH.filter(h=>!h.story)).id;const b=dhType(id,'k'),k='gd_'+id;
+  if(!ET[k])ET[k]=Object.assign({},ET[b],{boss:false,hp:380,sc:20,bname:'수비대'});return k;}
+ET.ggate={hp:1e9,sp:0,r:2.6,dmg:14,rate:99,sc:0,col:0x6a5a4a,km:0,boss:true,still:true,sai:1,custom:1,ai:'ggate',model:'ggate',bname:'성문',gmT:1};
+function gateModel(g,add){const st=std(0x7a6a5a,{roughness:.9}),dk=std(0x3a2a20,{roughness:.8}),ir=std(0x2a2a30,{metalness:.6,roughness:.4}),rf=std(0xa03a3a);
+  add(mk(new THREE.BoxGeometry(9,4.2,1.6),st,0,2.1,0));for(let i=-4;i<=4;i+=1.6)add(mk(new THREE.BoxGeometry(.9,.8,1.7),st,i,4.6,0));
+  for(const sx of[-1,1]){add(mk(new THREE.CylinderGeometry(1.3,1.45,6.2,10),st,sx*4.6,3.1,0),mk(new THREE.ConeGeometry(1.6,2,10),rf,sx*4.6,7.2,0));const fl=mk(new THREE.BoxGeometry(.9,.55,.04),std(GU.g&&GU.g.war?parseInt((GU.g.war.vs.col||'#ff5a5a').slice(1),16):0xff5a5a),sx*4.6+.45,8.7,0);add(fl,mk(new THREE.CylinderGeometry(.04,.04,1.6,5),ir,sx*4.6,8.2,0));}
+  add(mk(new THREE.BoxGeometry(3.2,3.4,.4),dk,0,1.7,.75));for(let i=-1.2;i<=1.2;i+=.6)add(mk(new THREE.BoxGeometry(.12,3.3,.1),ir,i,1.7,.98));for(const y of[.8,2.6])add(mk(new THREE.BoxGeometry(3.2,.14,.1),ir,0,y,.98));
+  const s=sprite(0xffb050);s.scale.set(3,3,1);s.position.set(0,4.4,1);add(s);}
+function gateAI(e,dt){e.sa=(e.sa==null?2.4:e.sa)-dt;if(e.sa>0||!P)return;e.sa=Math.max(1.3,2.4-(GM.t0-GM.t)/60);
+  for(let i=0;i<3;i++){const q=V(P.pos.x+P.kv.x*.25+rnd(-2.2,2.2),0,P.pos.z+P.kv.z*.25+rnd(-2.2,2.2));clampA(q,1);later(i*.18,()=>{telegraph(q,1.5,.85,0xff8a3a);
+    later(.85,()=>{if(!GM.on||e.dead)return;for(const pl of players)if(!pl.down&&d2(pl.pos,q)<1.5)hitPlayer(pl,14*dmMul,q,5);puff(V(q.x,.3,q.z),0x8a6a4a,8,3,1.4,.4);ringBurst(q,0xff8a3a,10,5,.4);});});}}
+function gmGo(k,again){if(GM.busy)return;GM.busy=true;(k==='boss'?ask('gBossStart',{}):ask('gSiege',{})).then(r=>{GM.busy=false;
+  if(!r||!r.ok){gToast({tries:'오늘 도전 횟수를 다 썼어요. 내일 다시!',killed:'이미 처치했어요!',nowar:'전쟁이 끝났어요',guild:'길드에 들어가 있지 않아요'}[r&&r.error]||'서버에 연결하지 못했어요');if(again)gmExit();else gRefresh();return;}
+  gmStart(k,r);});}
+function gmStart(k,r){closeGuild();$('#lobby').hidden=true;$('#menu').hidden=true;$('#gres').hidden=true;
+  Object.assign(GM,{on:true,k,data:r,hp:k==='boss'?r.hp:r.wall.hp,max:k==='boss'?r.max:r.wall.max,pend:0,sent:0,sendT:1,t:k==='boss'?90:120,t0:k==='boss'?90:120,done:false,spT:3,di:0,myHp:k==='war'?r.my.hp:0});
+  startGame([GU.hero]);gHeroSend(GU.hero);hpMul=1.6;dmMul=1.35;players[0].mods.dmg*=1.5;
+  if(k==='boss'){const base=GBOSS[r.week%GBOSS.length];GM.ent=spawnTok(gbType(base),V(0,0,-6));banner(`🐉 길드 보스 · ${ET[base].bname}`);}
+  else{GM.ent=spawnTok('ggate',V(0,0,-12));GM.def=r.def.length?r.def:[{name:'수비대',hero:null}];banner(`⚔️ ${r.vs.name} 성 공격!`);}
+  if(GM.ent){GM.ent.gm=1;GM.ent.spawnT=.1;}$('#toMenu1').textContent='길드로';$('#gmTop').hidden=false;gmHud();}
+function gmHud(){if(!GM.on)return;const wt=$('#waveT'),wl=GM.k==='war'?'⚔️ 성 공격':'🐉 길드 보스';if(wt&&wt.textContent!==wl)wt.textContent=wl;const shown=Math.max(0,GM.hp-GM.pend);const el=$('#gmTop');
+  el.innerHTML=`⏱ ${Math.max(0,Math.ceil(GM.t))}초 · 이번 판 ${gFmt(GM.sent+GM.pend)} 데미지<small>${GM.k==='war'?(GM.guard?'🛡️ 수비대가 성문을 지키는 중! (성문 피해 절반)':'성문을 공격하세요! 다른 길드원이 깎은 것도 실시간으로 보여요'):'길드원 모두의 데미지가 실시간으로 쌓여요'}</small>`;}
+function gmTick(dt){if(!GM.on||GM.done)return;GM.t-=dt;GM.sendT-=dt;
+  if(GM.k==='boss'){GM.spT-=dt;if(GM.spT<=0){GM.spT=7;const n=enemies.filter(e=>!e.dead&&!e.gm).length;if(n<5)for(let i=0;i<2;i++)spawnTok(pick(['shadowling','crackling','goblin^']));}}
+  else{const alive=enemies.filter(e=>!e.dead&&!e.gm);GM.guard=alive.some(e=>d2(e.pos,GM.ent.pos)<9);GM.spT-=dt;
+    if(GM.spT<=0&&alive.length<4){GM.spT=4.5;const d=GM.def[GM.di++%GM.def.length];const a=rnd(-1,1)*4;const e=spawnTok(gdType(d.hero,d.name),V(a,0,-8));if(e){e.gname=d.name;num(e.pos,`${d.name}`,'');}}}
+  if(GM.sendT<=0){GM.sendT=1;gmFlush();}
+  gmHud();if(GM.t<=0)gmEnd('time');}
+function gmDmg(e,dmg){if(!GM.on||GM.done||!e.gm)return;let d=dmg;if(GM.k==='war'&&GM.guard)d*=.5;GM.pend+=d;e.hp=e.max;}
+function gmFlush(){const n=Math.round(GM.pend);if(n<=0)return Promise.resolve();GM.pend-=n;GM.sent+=n;return ask('gHit',{dmg:n}).then(r=>{if(!r||!r.ok)return;if(GM.on){GM.hp=r.hp;if(r.killed&&GM.k==='boss')gmWin();if(r.won)gmEnd('won');}});}
+function gmWin(){if(!GM.on||GM.done)return;gmEnd('kill');}
+function gmEnd(why){if(!GM.on||GM.done)return;GM.done=true;const pl=players[0];if(pl)pl.inv=99;gmFlush().then(()=>ask('gFightEnd',{}));
+  for(const e of enemies)if(!e.dead&&!e.gm){e.dead=true;e.dying=.35;if(e.bar)e.bar.remove();}
+  if(why==='kill'||why==='won'){const p=GM.ent?GM.ent.pos:V();shock(p,6,0xffd36a,.7);pillar(p,0xffd36a,2.4,16,1);embers(p,0xffd36a,40,3);banner(why==='kill'?'길드 보스 처치!':'성벽 함락!');}
+  const dealt=GM.sent+Math.round(GM.pend);
+  setTimeout(()=>{if(!GM.on)return;state='sres';$('#hud').hidden=true;$('#gmTop').hidden=true;
+    $('#grT').textContent={kill:'🐉 길드 보스 처치!',won:'🏯 성 정복!',lost:'💔 성이 무너졌어요…',time:'⏱ 시간 끝!',dead:'쓰러졌어요…'}[why]||'끝!';
+    $('#grMsg').innerHTML=`이번 판 데미지 <b style="color:#ffd36a">${gFmt(dealt)}</b><br>${GM.k==='boss'?`보스 남은 체력 ${gFmt(GM.hp)} / ${gFmt(GM.max)}`:`상대 성벽 남은 체력 ${gFmt(GM.hp)} / ${gFmt(GM.max)}`}`;
+    $('#grAgain').hidden=why==='kill'||why==='won'||why==='lost';$('#gres').hidden=false;($('#grAgain').hidden?$('#grBack'):$('#grAgain')).focus();},why==='kill'||why==='won'?1800:900);}
+function gmExit(){GM.on=false;GM.done=true;try{ask('gFightEnd',{});}catch(e){}TEAM=null;clearWorld();$('#upg').hidden=true;upState=null;menuGroup.visible=true;
+  $('#hud').hidden=true;$('#over').hidden=true;$('#pause').hidden=true;$('#gres').hidden=true;$('#gmTop').hidden=true;$('#toMenu1').textContent='캐릭터 선택으로';goLobby();openGuild();}
+$('#gChip').onclick=openGuild;$('#gClose').onclick=closeGuild;$('#grBack').onclick=gmExit;$('#grAgain').onclick=()=>{const k=GM.k;GM.on=false;TEAM=null;clearWorld();$('#gres').hidden=true;$('#hud').hidden=true;menuGroup.visible=true;gmGo(k,true);};
+
 function goLobby(){state='lobby';$('#menu').hidden=true;$('#lobby').hidden=false;}
 function pickVersion(v){setVersion(v);state='menu';$('#lobby').hidden=true;$('#menu').hidden=false;csel.forEach(c=>c.ok=false);renderSel();idleT=0;}
 document.querySelectorAll('.ver[data-v]').forEach(b=>{b.addEventListener('mouseenter',()=>setVersion(+b.dataset.v));b.addEventListener('focus',()=>setVersion(+b.dataset.v));b.addEventListener('click',()=>pickVersion(+b.dataset.v));});
@@ -5171,9 +5380,9 @@ function menuKey(e){
   if(e.code==='Escape'){csel.forEach(c=>c.ok=false);renderSel();}}
 addEventListener('keydown',e=>{if(e.target&&e.target.tagName==='INPUT'){if(e.code==='Enter'&&e.target.id==='nickIn')nickOk();if(e.code==='Enter'&&e.target.id==='frSearch')frFind();if(e.code==='Enter'&&e.target.id==='netIn')netJoin();if(e.code==='Escape'&&e.target.id==='chatIn')closeChat();return;}
   if(NET.on&&(e.code==='Enter'||e.code==='NumpadEnter')&&(state==='play'||state==='over')&&$('#online').hidden){e.preventDefault();openChat();return;}if(!$('#nick').hidden){if(e.code==='Escape'&&hasName())$('#nick').hidden=true;return;}
-  if(!$('#cpDlg').hidden){if(e.code==='Escape')$('#cpDlg').hidden=true;return;}if(!$('#giftDlg').hidden){if(e.code==='Escape')$('#giftDlg').hidden=true;return;}if(!$('#shop').hidden){if(e.code==='Escape')closeShop();return;}
+  if(!$('#cpDlg').hidden){if(e.code==='Escape')$('#cpDlg').hidden=true;return;}if(!$('#giftDlg').hidden){if(e.code==='Escape')$('#giftDlg').hidden=true;return;}if(!$('#shop').hidden){if(e.code==='Escape')closeShop();return;}if(!$('#guild').hidden){if(e.code==='Escape')closeGuild();return;}
   if(!$('#online').hidden||!$('#match').hidden||!$('#friends').hidden||!$('#ranks').hidden){if(e.code==='Escape'){closeOnline();closeMatch();closeFriends();closeRanks();}return;}keys[e.code]=true;if(!e.repeat)tapped[e.code]=true;
-  if(state==='cs'){csKey(e);e.preventDefault();return;}if(state==='story'){storyKey(e);return;}if(state==='sres'){sresKey(e);return;}
+  if(state==='cs'){csKey(e);e.preventDefault();return;}if(state==='story'){storyKey(e);return;}if(state==='sres'&&GM.on){if(e.code==='Escape')gmExit();return;}if(state==='sres'){sresKey(e);return;}
   if(state==='lobby'){if(e.code==='Digit6'||e.code==='Numpad6'){openStory();return;}if(e.code==='Digit1'||e.code==='Numpad1')pickVersion(1);if(e.code==='Digit2'||e.code==='Numpad2')pickVersion(2);if(e.code==='Digit3'||e.code==='Numpad3')pickVersion(3);if(e.code==='Digit4'||e.code==='Numpad4')pickVersion(4);if(e.code==='Digit5'||e.code==='Numpad5')pickVersion(5);if(e.code==='ArrowLeft'||e.code==='KeyA')setVersion(Math.max(1,VER-1));if(e.code==='ArrowRight'||e.code==='KeyD')setVersion(Math.min(5,VER+1));if(e.code==='Enter'||e.code==='KeyJ'||e.code==='Space'){e.preventDefault();pickVersion(VER);}return;}
   if(state==='menu'){if(e.code==='Backspace'){goLobby();return;}menuKey(e);if(/^Arrow/.test(e.code))e.preventDefault();return;}
   if(state==='upgrade'){upgKey(e);e.preventDefault();return;}
